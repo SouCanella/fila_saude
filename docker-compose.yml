@@ -30,20 +30,14 @@ services:
       timeout: 3s
       retries: 5
 
-  # Dev stub até dados OSM/OSRM reais (CARD-007). Responde HTTP 200 na porta 5000.
+  # Dev stub até dados OSM/OSRM reais (CARD-007). Responde HTTP 200 na porta publicada.
   osrm:
     image: hashicorp/http-echo:0.2.3
     profiles:
       - routing
-    environment:
-      ECHO_TEXT: ok
+    command: ["-text=ok", "-listen=:5678"]
     ports:
       - "${OSRM_PORT:-5000}:5678"
-    healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:5678/"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
 
   api:
     build:

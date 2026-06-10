@@ -6,7 +6,7 @@ _Índice canônico — planejamento MVP 2026-06-10._
 
 | CARD_ID | Fase | Título | REQ(s) | Status | Arquivo |
 |---------|------|--------|--------|--------|---------|
-| CARD-001 | FASE-1 | Fundação técnica | REQ-001, REQ-002, REQ-014 | in_progress | [CARD-001-fundacao-tecnica.md](../tracking/cards/CARD-001-fundacao-tecnica.md) |
+| CARD-001 | FASE-1 | Fundação técnica | REQ-001, REQ-002, REQ-014 | done | [CARD-001-fundacao-tecnica.md](../tracking/cards/CARD-001-fundacao-tecnica.md) |
 | CARD-002 | FASE-1 | API REST v1 hospitais | REQ-003 | open | [CARD-002-api-hospitais.md](../tracking/cards/CARD-002-api-hospitais.md) |
 | CARD-003 | FASE-1 | Ingestão mock RJ | REQ-004 | open | [CARD-003-ingestao-mock-rj.md](../tracking/cards/CARD-003-ingestao-mock-rj.md) |
 | CARD-004 | FASE-2 | Shell Next.js + design system | REQ-005 | open | [CARD-004-shell-nextjs.md](../tracking/cards/CARD-004-shell-nextjs.md) |

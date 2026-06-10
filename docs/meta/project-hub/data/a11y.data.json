@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-10T12:38:13.304895+00:00",
+  "built_at": "2026-06-10T13:48:20.324704+00:00",
   "module_help": {
     "title": "Acessibilidade (a11y)",
     "summary": "A11y = tornar a interface utilizável por mais pessoas — leitores de tela, teclado, contraste, labels. Este painel lê o checklist WCAG básico em design-references/APPROVAL.md e o status dos mocks HTML por tela.",

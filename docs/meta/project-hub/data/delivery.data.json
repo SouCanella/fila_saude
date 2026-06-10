@@ -1,11 +1,11 @@
 {
-  "built_at": "2026-06-10T12:38:13.395819+00:00",
+  "built_at": "2026-06-10T13:48:20.405293+00:00",
   "source": "docs/delivery-log.md",
   "entries": [
     {
       "card_id": "CARD-001",
       "title": "CARD-001",
-      "status": "Em andamento",
+      "status": "Concluída",
       "req_ids": [
         "REQ-001",
         "REQ-001-MONOREPO-DOCKER",
@@ -14,9 +14,9 @@
         "REQ-014",
         "REQ-014-OBSERVABILIDADE-API"
       ],
-      "tdd_red_green": "sim (unit + handler integration)",
+      "tdd_red_green": "sim",
       "started_at": "2026-06-10 04:00",
-      "ended_at": "—",
+      "ended_at": "2026-06-10 13:00",
       "branch": "feature/CARD-001-fundacao-tecnica",
       "pr": "—",
       "phase": "FASE-1",
@@ -25,7 +25,7 @@
   ],
   "report": {
     "total": 1,
-    "completed": 0,
-    "in_progress": 1
+    "completed": 1,
+    "in_progress": 0
   }
 }

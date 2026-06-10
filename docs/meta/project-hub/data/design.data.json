@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-10T12:38:13.355742+00:00",
+  "built_at": "2026-06-10T13:48:20.373883+00:00",
   "module_help": {
     "title": "Design readiness",
     "summary": "Antes de implementar React/Vue/etc., o MVP precisa de mocks HTML aprovados em design-references/. Este módulo mostra status de aprovação, checklist e links para abrir cada tela mockada.",

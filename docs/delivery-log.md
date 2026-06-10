@@ -6,10 +6,10 @@ Registro de entregas.
 
 ## Entrega: CARD-001 — Fundação técnica
 
-Status: Em andamento
+Status: Concluída
 
 Data/hora início: 2026-06-10 04:00  
-Data/hora fim: —  
+Data/hora fim: 2026-06-10 13:00  
 Responsável: Romulo Canella + IA  
 Branch: feature/CARD-001-fundacao-tecnica  
 PR/MR: —
@@ -32,18 +32,17 @@ Monorepo scaffold: `apps/api` (Go), `apps/web` (Next.js), `packages/shared`. Doc
 
 ### Testes (TDD)
 
-- Comando unitários: `cd apps/api && go test ./internal/...` — **green**
-- Comando integração handler: `go test -tags=integration ./tests/integration/handler/...` — **green**
-- Integração infra/DB: requer `docker compose up` (porta 5432 livre) + `DATABASE_URL` com `sslmode=disable`
-- Red → Green: sim (unit + handler integration)
+- Comando unitários: `make test-api` — **green**
+- Comando integração: `make test-api-integration` — **green** (Postgres :5433, OSRM :5001)
+- Red → Green: sim
 - Unitários back: config, domain, repository mock, middleware, health handler
 - Integração: handler health/404; postgres/redis/osrm/repo — executar após compose local
 
 ### Checklist DoD
 
 - [x] Specs approved
-- [x] TDD unitários green
-- [ ] Integração infra green (depende compose local — porta 5432 ocupada no ambiente agente)
+- [x] TDD unitários + integração green
+- [x] Integração infra green (compose POSTGRES_PORT=5433)
 - [x] OpenAPI /health implementado
 - [ ] Cobertura >= threshold (medir após integração)
 - [x] delivery-log e matrix atualizados
@@ -51,8 +50,6 @@ Monorepo scaffold: `apps/api` (Go), `apps/web` (Next.js), `packages/shared`. Doc
 
 ### Pendências
 
-- [ ] Rodar `./scripts/smoke-compose.sh` com porta 5432 livre
-- [ ] `go test -tags=integration ./tests/integration/...` com compose up
-- [ ] Fechar CARD-001 após integração green
+- [ ] Nenhuma — CARD-001 fechado
 
 ---

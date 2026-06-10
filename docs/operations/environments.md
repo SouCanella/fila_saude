@@ -15,6 +15,9 @@ Preenchido no bootstrap (bloco M — 2026-06-09).
 docker compose up -d postgres redis
 docker compose --profile routing up -d osrm
 
+# Se porta 5432 ou 5000 já estiverem em uso:
+# POSTGRES_PORT=5433 OSRM_PORT=5001 docker compose ...
+
 # Ou smoke script
 ./scripts/smoke-compose.sh
 

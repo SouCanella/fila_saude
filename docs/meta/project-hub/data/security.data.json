@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-10T12:38:13.255202+00:00",
+  "built_at": "2026-06-10T13:48:20.277102+00:00",
   "module_help": {
     "title": "Segurança do projeto",
     "summary": "Consolida o checklist global de entrega (docs/security/) com REQs marcados como sensíveis ou que exigem camada security na spec.",

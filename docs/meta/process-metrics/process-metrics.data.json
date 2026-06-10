@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-10T04:45:00Z",
+  "updated_at": "2026-06-10T13:00:00Z",
   "milestones": [
     {
       "id": "milestone-discovery-2026-06-10",
@@ -156,6 +156,18 @@
       "idle_before_seconds": 0,
       "source": "agent_turn",
       "needs_review": false
+    },
+    {
+      "id": "round-2026-06-10T13-00",
+      "at": "2026-06-10T13:00:00Z",
+      "activity": "implementation",
+      "phase": "FASE-1",
+      "card_id": "CARD-001",
+      "human_active_seconds": 300,
+      "ai_execution_seconds": 600,
+      "idle_before_seconds": 0,
+      "source": "agent_turn",
+      "needs_review": false
     }
   ],
   "gates": {
@@ -171,23 +183,19 @@
   "process_metrics_config": {
     "idle_threshold_hours": 4.0,
     "ai_minutes_per_round_default": 3,
-    "active_context": {
-      "card_id": "CARD-001",
-      "phase": "FASE-1",
-      "activity": "implementation"
-    }
+    "active_context": null
   },
   "aggregates": {
     "idle_threshold_hours": 4.0,
     "project": {
-      "human_active_seconds": 3780,
-      "ai_execution_seconds": 2520,
+      "human_active_seconds": 4080,
+      "ai_execution_seconds": 3120,
       "idle_seconds": 0
     },
     "by_phase": {
       "FASE-1": {
-        "human_active_seconds": 300,
-        "ai_execution_seconds": 1200,
+        "human_active_seconds": 600,
+        "ai_execution_seconds": 1800,
         "idle_seconds": 0
       },
       "SETUP": {
@@ -213,8 +221,8 @@
         "idle_seconds": 0
       },
       "implementation": {
-        "human_active_seconds": 120,
-        "ai_execution_seconds": 900,
+        "human_active_seconds": 420,
+        "ai_execution_seconds": 1500,
         "idle_seconds": 0
       },
       "mvp_planning": {
@@ -236,12 +244,12 @@
     "by_day": [
       {
         "date": "2026-06-10",
-        "human_active_seconds": 3780,
-        "ai_execution_seconds": 2520,
+        "human_active_seconds": 4080,
+        "ai_execution_seconds": 3120,
         "idle_seconds": 0,
-        "rounds_count": 9,
-        "total_seconds": 6300,
-        "total_days": 0.07
+        "rounds_count": 10,
+        "total_seconds": 7200,
+        "total_days": 0.08
       }
     ],
     "activity_averages": [
@@ -278,11 +286,11 @@
       {
         "activity": "implementation",
         "label": "Implementação",
-        "rounds_count": 1,
-        "avg_human_seconds": 120,
-        "avg_ai_seconds": 900,
+        "rounds_count": 2,
+        "avg_human_seconds": 210,
+        "avg_ai_seconds": 750,
         "avg_idle_seconds": 0,
-        "avg_total_seconds": 1020,
+        "avg_total_seconds": 960,
         "avg_total_days": 0.01
       },
       {
@@ -318,7 +326,7 @@
     ],
     "calendar_from_milestones_seconds": 10320,
     "calendar_from_milestones_days": 0.12,
-    "project_effort_days": 0.07,
+    "project_effort_days": 0.08,
     "rounds_needing_review": 0,
     "calendar_project_span_days": 1
   },
@@ -333,87 +341,73 @@
     "calendar_ratio": 0.0,
     "completed_phases": [],
     "avg_completed_phase_seconds": 0,
-    "avg_card_seconds_global": 1500,
+    "avg_card_seconds_global": 2400,
     "phases": [
       {
         "phase": "FASE-1",
         "status": "pendente",
-        "pending_cards_count": 3,
-        "estimated_active_seconds": 4500,
+        "pending_cards_count": 2,
+        "estimated_active_seconds": 4800,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.05,
+        "estimated_active_days": 0.06,
         "estimated_calendar_days": 0.0,
-        "estimated_human_seconds": 2475,
-        "estimated_ai_seconds": 1350,
-        "estimated_idle_seconds": 675,
+        "estimated_human_seconds": 2640,
+        "estimated_ai_seconds": 1440,
+        "estimated_idle_seconds": 720,
         "based_on_completed_phases": 0,
         "confidence": "baixa",
-        "forecast_delivery_start_at": "2026-06-12T00:55:00+00:00",
-        "forecast_delivery_end_at": "2026-06-19T00:55:00+00:00",
+        "forecast_delivery_start_at": "2026-06-12T07:00:00+00:00",
+        "forecast_delivery_end_at": "2026-06-19T07:00:00+00:00",
         "forecast_delivery_date": "2026-06-19"
       },
       {
         "phase": "FASE-2",
         "status": "pendente",
         "pending_cards_count": 5,
-        "estimated_active_seconds": 7500,
+        "estimated_active_seconds": 12000,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.09,
+        "estimated_active_days": 0.14,
         "estimated_calendar_days": 0.0,
-        "estimated_human_seconds": 4125,
-        "estimated_ai_seconds": 2250,
-        "estimated_idle_seconds": 1125,
+        "estimated_human_seconds": 6600,
+        "estimated_ai_seconds": 3600,
+        "estimated_idle_seconds": 1800,
         "based_on_completed_phases": 0,
         "confidence": "baixa",
-        "forecast_delivery_start_at": "2026-06-19T00:55:00+00:00",
-        "forecast_delivery_end_at": "2026-06-26T00:55:00+00:00",
+        "forecast_delivery_start_at": "2026-06-19T07:00:00+00:00",
+        "forecast_delivery_end_at": "2026-06-26T07:00:00+00:00",
         "forecast_delivery_date": "2026-06-26"
       },
       {
         "phase": "FASE-3",
         "status": "pendente",
         "pending_cards_count": 2,
-        "estimated_active_seconds": 3000,
+        "estimated_active_seconds": 4800,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.03,
+        "estimated_active_days": 0.06,
         "estimated_calendar_days": 0.0,
-        "estimated_human_seconds": 1650,
-        "estimated_ai_seconds": 900,
-        "estimated_idle_seconds": 450,
+        "estimated_human_seconds": 2640,
+        "estimated_ai_seconds": 1440,
+        "estimated_idle_seconds": 720,
         "based_on_completed_phases": 0,
         "confidence": "baixa",
-        "forecast_delivery_start_at": "2026-06-26T00:55:00+00:00",
-        "forecast_delivery_end_at": "2026-07-03T00:55:00+00:00",
+        "forecast_delivery_start_at": "2026-06-26T07:00:00+00:00",
+        "forecast_delivery_end_at": "2026-07-03T07:00:00+00:00",
         "forecast_delivery_date": "2026-07-03"
       }
     ],
     "cards": [
       {
-        "card_id": "CARD-001",
-        "phase": "FASE-1",
-        "title": "Fundação técnica",
-        "status": "in_progress",
-        "estimated_active_seconds": 1500,
-        "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
-        "estimated_calendar_days": 0.0,
-        "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-10T04:45:00+00:00",
-        "forecast_delivery_end_at": "2026-06-10T05:10:00+00:00",
-        "forecast_delivery_date": "2026-06-10"
-      },
-      {
         "card_id": "CARD-002",
         "phase": "FASE-1",
         "title": "API REST v1 hospitais",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-10T09:10:00+00:00",
-        "forecast_delivery_end_at": "2026-06-10T09:35:00+00:00",
+        "forecast_delivery_start_at": "2026-06-10T13:00:00+00:00",
+        "forecast_delivery_end_at": "2026-06-10T13:40:00+00:00",
         "forecast_delivery_date": "2026-06-10"
       },
       {
@@ -421,13 +415,13 @@
         "phase": "FASE-1",
         "title": "Ingestão mock RJ",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-10T13:35:00+00:00",
-        "forecast_delivery_end_at": "2026-06-10T14:00:00+00:00",
+        "forecast_delivery_start_at": "2026-06-10T17:40:00+00:00",
+        "forecast_delivery_end_at": "2026-06-10T18:20:00+00:00",
         "forecast_delivery_date": "2026-06-10"
       },
       {
@@ -435,13 +429,13 @@
         "phase": "FASE-2",
         "title": "Shell Next.js + design system",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-10T18:00:00+00:00",
-        "forecast_delivery_end_at": "2026-06-10T18:25:00+00:00",
+        "forecast_delivery_start_at": "2026-06-10T22:20:00+00:00",
+        "forecast_delivery_end_at": "2026-06-10T23:00:00+00:00",
         "forecast_delivery_date": "2026-06-10"
       },
       {
@@ -449,27 +443,27 @@
         "phase": "FASE-2",
         "title": "Onboarding, mapa, lista e início (4 telas; card único)",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-10T22:25:00+00:00",
-        "forecast_delivery_end_at": "2026-06-10T22:50:00+00:00",
-        "forecast_delivery_date": "2026-06-10"
+        "forecast_delivery_start_at": "2026-06-11T03:00:00+00:00",
+        "forecast_delivery_end_at": "2026-06-11T03:40:00+00:00",
+        "forecast_delivery_date": "2026-06-11"
       },
       {
         "card_id": "CARD-006",
         "phase": "FASE-2",
         "title": "Detalhe e comparar",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-11T02:50:00+00:00",
-        "forecast_delivery_end_at": "2026-06-11T03:15:00+00:00",
+        "forecast_delivery_start_at": "2026-06-11T07:40:00+00:00",
+        "forecast_delivery_end_at": "2026-06-11T08:20:00+00:00",
         "forecast_delivery_date": "2026-06-11"
       },
       {
@@ -477,13 +471,13 @@
         "phase": "FASE-2",
         "title": "Rota OSRM + MapLibre",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-11T07:15:00+00:00",
-        "forecast_delivery_end_at": "2026-06-11T07:40:00+00:00",
+        "forecast_delivery_start_at": "2026-06-11T12:20:00+00:00",
+        "forecast_delivery_end_at": "2026-06-11T13:00:00+00:00",
         "forecast_delivery_date": "2026-06-11"
       },
       {
@@ -491,13 +485,13 @@
         "phase": "FASE-2",
         "title": "Favoritos, alertas e legal",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-11T11:40:00+00:00",
-        "forecast_delivery_end_at": "2026-06-11T12:05:00+00:00",
+        "forecast_delivery_start_at": "2026-06-11T17:00:00+00:00",
+        "forecast_delivery_end_at": "2026-06-11T17:40:00+00:00",
         "forecast_delivery_date": "2026-06-11"
       },
       {
@@ -505,13 +499,13 @@
         "phase": "FASE-3",
         "title": "Admin integrações",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-11T16:05:00+00:00",
-        "forecast_delivery_end_at": "2026-06-11T16:30:00+00:00",
+        "forecast_delivery_start_at": "2026-06-11T21:40:00+00:00",
+        "forecast_delivery_end_at": "2026-06-11T22:20:00+00:00",
         "forecast_delivery_date": "2026-06-11"
       },
       {
@@ -519,34 +513,24 @@
         "phase": "FASE-3",
         "title": "E2E fluxos críticos",
         "status": "open",
-        "estimated_active_seconds": 1500,
+        "estimated_active_seconds": 2400,
         "estimated_calendar_seconds": 0,
-        "estimated_active_days": 0.02,
+        "estimated_active_days": 0.03,
         "estimated_calendar_days": 0.0,
         "confidence": "media",
-        "forecast_delivery_start_at": "2026-06-11T20:30:00+00:00",
-        "forecast_delivery_end_at": "2026-06-11T20:55:00+00:00",
-        "forecast_delivery_date": "2026-06-11"
+        "forecast_delivery_start_at": "2026-06-12T02:20:00+00:00",
+        "forecast_delivery_end_at": "2026-06-12T03:00:00+00:00",
+        "forecast_delivery_date": "2026-06-12"
       }
     ],
     "delivery_schedule": [
-      {
-        "id": "CARD-001",
-        "label": "CARD-001 — Fundação técnica",
-        "kind": "card",
-        "phase": "FASE-1",
-        "forecast_start_at": "2026-06-10T04:45:00+00:00",
-        "forecast_end_at": "2026-06-10T05:10:00+00:00",
-        "forecast_delivery_date": "2026-06-10",
-        "date_kind": "statistical_projection"
-      },
       {
         "id": "CARD-002",
         "label": "CARD-002 — API REST v1 hospitais",
         "kind": "card",
         "phase": "FASE-1",
-        "forecast_start_at": "2026-06-10T09:10:00+00:00",
-        "forecast_end_at": "2026-06-10T09:35:00+00:00",
+        "forecast_start_at": "2026-06-10T13:00:00+00:00",
+        "forecast_end_at": "2026-06-10T13:40:00+00:00",
         "forecast_delivery_date": "2026-06-10",
         "date_kind": "statistical_projection"
       },
@@ -555,8 +539,8 @@
         "label": "CARD-003 — Ingestão mock RJ",
         "kind": "card",
         "phase": "FASE-1",
-        "forecast_start_at": "2026-06-10T13:35:00+00:00",
-        "forecast_end_at": "2026-06-10T14:00:00+00:00",
+        "forecast_start_at": "2026-06-10T17:40:00+00:00",
+        "forecast_end_at": "2026-06-10T18:20:00+00:00",
         "forecast_delivery_date": "2026-06-10",
         "date_kind": "statistical_projection"
       },
@@ -565,8 +549,8 @@
         "label": "CARD-004 — Shell Next.js + design system",
         "kind": "card",
         "phase": "FASE-2",
-        "forecast_start_at": "2026-06-10T18:00:00+00:00",
-        "forecast_end_at": "2026-06-10T18:25:00+00:00",
+        "forecast_start_at": "2026-06-10T22:20:00+00:00",
+        "forecast_end_at": "2026-06-10T23:00:00+00:00",
         "forecast_delivery_date": "2026-06-10",
         "date_kind": "statistical_projection"
       },
@@ -575,9 +559,9 @@
         "label": "CARD-005 — Onboarding, mapa, lista e início (4 telas; card único)",
         "kind": "card",
         "phase": "FASE-2",
-        "forecast_start_at": "2026-06-10T22:25:00+00:00",
-        "forecast_end_at": "2026-06-10T22:50:00+00:00",
-        "forecast_delivery_date": "2026-06-10",
+        "forecast_start_at": "2026-06-11T03:00:00+00:00",
+        "forecast_end_at": "2026-06-11T03:40:00+00:00",
+        "forecast_delivery_date": "2026-06-11",
         "date_kind": "statistical_projection"
       },
       {
@@ -585,8 +569,8 @@
         "label": "CARD-006 — Detalhe e comparar",
         "kind": "card",
         "phase": "FASE-2",
-        "forecast_start_at": "2026-06-11T02:50:00+00:00",
-        "forecast_end_at": "2026-06-11T03:15:00+00:00",
+        "forecast_start_at": "2026-06-11T07:40:00+00:00",
+        "forecast_end_at": "2026-06-11T08:20:00+00:00",
         "forecast_delivery_date": "2026-06-11",
         "date_kind": "statistical_projection"
       },
@@ -595,8 +579,8 @@
         "label": "CARD-007 — Rota OSRM + MapLibre",
         "kind": "card",
         "phase": "FASE-2",
-        "forecast_start_at": "2026-06-11T07:15:00+00:00",
-        "forecast_end_at": "2026-06-11T07:40:00+00:00",
+        "forecast_start_at": "2026-06-11T12:20:00+00:00",
+        "forecast_end_at": "2026-06-11T13:00:00+00:00",
         "forecast_delivery_date": "2026-06-11",
         "date_kind": "statistical_projection"
       },
@@ -605,8 +589,8 @@
         "label": "CARD-008 — Favoritos, alertas e legal",
         "kind": "card",
         "phase": "FASE-2",
-        "forecast_start_at": "2026-06-11T11:40:00+00:00",
-        "forecast_end_at": "2026-06-11T12:05:00+00:00",
+        "forecast_start_at": "2026-06-11T17:00:00+00:00",
+        "forecast_end_at": "2026-06-11T17:40:00+00:00",
         "forecast_delivery_date": "2026-06-11",
         "date_kind": "statistical_projection"
       },
@@ -615,8 +599,8 @@
         "label": "CARD-009 — Admin integrações",
         "kind": "card",
         "phase": "FASE-3",
-        "forecast_start_at": "2026-06-11T16:05:00+00:00",
-        "forecast_end_at": "2026-06-11T16:30:00+00:00",
+        "forecast_start_at": "2026-06-11T21:40:00+00:00",
+        "forecast_end_at": "2026-06-11T22:20:00+00:00",
         "forecast_delivery_date": "2026-06-11",
         "date_kind": "statistical_projection"
       },
@@ -625,9 +609,9 @@
         "label": "CARD-010 — E2E fluxos críticos",
         "kind": "card",
         "phase": "FASE-3",
-        "forecast_start_at": "2026-06-11T20:30:00+00:00",
-        "forecast_end_at": "2026-06-11T20:55:00+00:00",
-        "forecast_delivery_date": "2026-06-11",
+        "forecast_start_at": "2026-06-12T02:20:00+00:00",
+        "forecast_end_at": "2026-06-12T03:00:00+00:00",
+        "forecast_delivery_date": "2026-06-12",
         "date_kind": "statistical_projection"
       },
       {
@@ -635,8 +619,8 @@
         "label": "FASE-1 (projeção estatística)",
         "kind": "phase",
         "phase": "FASE-1",
-        "forecast_start_at": "2026-06-12T00:55:00+00:00",
-        "forecast_end_at": "2026-06-19T00:55:00+00:00",
+        "forecast_start_at": "2026-06-12T07:00:00+00:00",
+        "forecast_end_at": "2026-06-19T07:00:00+00:00",
         "forecast_delivery_date": "2026-06-19",
         "date_kind": "statistical_projection"
       },
@@ -645,8 +629,8 @@
         "label": "FASE-2 (projeção estatística)",
         "kind": "phase",
         "phase": "FASE-2",
-        "forecast_start_at": "2026-06-19T00:55:00+00:00",
-        "forecast_end_at": "2026-06-26T00:55:00+00:00",
+        "forecast_start_at": "2026-06-19T07:00:00+00:00",
+        "forecast_end_at": "2026-06-26T07:00:00+00:00",
         "forecast_delivery_date": "2026-06-26",
         "date_kind": "statistical_projection"
       },
@@ -655,18 +639,18 @@
         "label": "FASE-3 (projeção estatística)",
         "kind": "phase",
         "phase": "FASE-3",
-        "forecast_start_at": "2026-06-26T00:55:00+00:00",
-        "forecast_end_at": "2026-07-03T00:55:00+00:00",
+        "forecast_start_at": "2026-06-26T07:00:00+00:00",
+        "forecast_end_at": "2026-07-03T07:00:00+00:00",
         "forecast_delivery_date": "2026-07-03",
         "date_kind": "statistical_projection"
       }
     ],
-    "project_delivery_forecast_at": "2026-07-03T00:55:00+00:00",
+    "project_delivery_forecast_at": "2026-07-03T07:00:00+00:00",
     "project_delivery_forecast_date": "2026-07-03"
   },
   "gantt": {
     "range_start": "2026-06-08T00:53:00+00:00",
-    "range_end": "2026-07-05T00:55:00+00:00",
+    "range_end": "2026-07-05T07:00:00+00:00",
     "tasks": [
       {
         "id": "milestone-fase1-delivery-start-2026-06-10",
@@ -684,13 +668,13 @@
         "label": "CARD-001 — Fundação técnica",
         "group": "FASE-1",
         "kind": "card",
-        "status": "forecast",
-        "date_source": "statistical_projection",
-        "planned_date_kind": "statistical_projection",
-        "actual_start": null,
-        "actual_end": null,
-        "planned_start": "2026-06-10T04:45:00+00:00",
-        "planned_end": "2026-06-10T05:10:00+00:00"
+        "status": "done",
+        "date_source": "rounds_fallback",
+        "planned_date_kind": "tracked_delivery",
+        "actual_start": "2026-06-10T04:00:00+00:00",
+        "actual_end": "2026-06-10T13:00:00+00:00",
+        "planned_start": "2026-06-10T04:00:00+00:00",
+        "planned_end": "2026-06-10T13:00:00+00:00"
       },
       {
         "id": "CARD-002",
@@ -702,8 +686,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-10T09:10:00+00:00",
-        "planned_end": "2026-06-10T09:35:00+00:00"
+        "planned_start": "2026-06-10T13:00:00+00:00",
+        "planned_end": "2026-06-10T13:40:00+00:00"
       },
       {
         "id": "CARD-003",
@@ -715,8 +699,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-10T13:35:00+00:00",
-        "planned_end": "2026-06-10T14:00:00+00:00"
+        "planned_start": "2026-06-10T17:40:00+00:00",
+        "planned_end": "2026-06-10T18:20:00+00:00"
       },
       {
         "id": "forecast-FASE-1",
@@ -728,8 +712,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-12T00:55:00+00:00",
-        "planned_end": "2026-06-19T00:55:00+00:00"
+        "planned_start": "2026-06-12T07:00:00+00:00",
+        "planned_end": "2026-06-19T07:00:00+00:00"
       },
       {
         "id": "CARD-004",
@@ -741,8 +725,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-10T18:00:00+00:00",
-        "planned_end": "2026-06-10T18:25:00+00:00"
+        "planned_start": "2026-06-10T22:20:00+00:00",
+        "planned_end": "2026-06-10T23:00:00+00:00"
       },
       {
         "id": "CARD-005",
@@ -754,8 +738,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-10T22:25:00+00:00",
-        "planned_end": "2026-06-10T22:50:00+00:00"
+        "planned_start": "2026-06-11T03:00:00+00:00",
+        "planned_end": "2026-06-11T03:40:00+00:00"
       },
       {
         "id": "CARD-006",
@@ -767,8 +751,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-11T02:50:00+00:00",
-        "planned_end": "2026-06-11T03:15:00+00:00"
+        "planned_start": "2026-06-11T07:40:00+00:00",
+        "planned_end": "2026-06-11T08:20:00+00:00"
       },
       {
         "id": "CARD-007",
@@ -780,8 +764,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-11T07:15:00+00:00",
-        "planned_end": "2026-06-11T07:40:00+00:00"
+        "planned_start": "2026-06-11T12:20:00+00:00",
+        "planned_end": "2026-06-11T13:00:00+00:00"
       },
       {
         "id": "CARD-008",
@@ -793,8 +777,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-11T11:40:00+00:00",
-        "planned_end": "2026-06-11T12:05:00+00:00"
+        "planned_start": "2026-06-11T17:00:00+00:00",
+        "planned_end": "2026-06-11T17:40:00+00:00"
       },
       {
         "id": "forecast-FASE-2",
@@ -806,8 +790,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-19T00:55:00+00:00",
-        "planned_end": "2026-06-26T00:55:00+00:00"
+        "planned_start": "2026-06-19T07:00:00+00:00",
+        "planned_end": "2026-06-26T07:00:00+00:00"
       },
       {
         "id": "CARD-009",
@@ -819,8 +803,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-11T16:05:00+00:00",
-        "planned_end": "2026-06-11T16:30:00+00:00"
+        "planned_start": "2026-06-11T21:40:00+00:00",
+        "planned_end": "2026-06-11T22:20:00+00:00"
       },
       {
         "id": "CARD-010",
@@ -832,8 +816,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-11T20:30:00+00:00",
-        "planned_end": "2026-06-11T20:55:00+00:00"
+        "planned_start": "2026-06-12T02:20:00+00:00",
+        "planned_end": "2026-06-12T03:00:00+00:00"
       },
       {
         "id": "forecast-FASE-3",
@@ -845,8 +829,8 @@
         "planned_date_kind": "statistical_projection",
         "actual_start": null,
         "actual_end": null,
-        "planned_start": "2026-06-26T00:55:00+00:00",
-        "planned_end": "2026-07-03T00:55:00+00:00"
+        "planned_start": "2026-06-26T07:00:00+00:00",
+        "planned_end": "2026-07-03T07:00:00+00:00"
       },
       {
         "id": "milestone-discovery-2026-06-10",
@@ -908,9 +892,9 @@
   "calendar_events": [
     {
       "date": "2026-06-10",
-      "title": "→ CARD-001 — Fundação técnica (est.)",
-      "kind": "delivery_forecast",
-      "date_kind": "statistical_projection",
+      "title": "✓ CARD-001 — Fundação técnica",
+      "kind": "delivery_actual",
+      "date_kind": "tracked_delivery",
       "phase": "FASE-1",
       "card_id": "CARD-001"
     },
@@ -937,14 +921,6 @@
       "date_kind": "statistical_projection",
       "phase": "FASE-2",
       "card_id": "CARD-004"
-    },
-    {
-      "date": "2026-06-10",
-      "title": "→ CARD-005 — Onboarding, mapa, lista e início (4 telas; card único) (est.)",
-      "kind": "delivery_forecast",
-      "date_kind": "statistical_projection",
-      "phase": "FASE-2",
-      "card_id": "CARD-005"
     },
     {
       "date": "2026-06-10",
@@ -988,6 +964,14 @@
     },
     {
       "date": "2026-06-11",
+      "title": "→ CARD-005 — Onboarding, mapa, lista e início (4 telas; card único) (est.)",
+      "kind": "delivery_forecast",
+      "date_kind": "statistical_projection",
+      "phase": "FASE-2",
+      "card_id": "CARD-005"
+    },
+    {
+      "date": "2026-06-11",
       "title": "→ CARD-006 — Detalhe e comparar (est.)",
       "kind": "delivery_forecast",
       "date_kind": "statistical_projection",
@@ -1019,7 +1003,7 @@
       "card_id": "CARD-009"
     },
     {
-      "date": "2026-06-11",
+      "date": "2026-06-12",
       "title": "→ CARD-010 — E2E fluxos críticos (est.)",
       "kind": "delivery_forecast",
       "date_kind": "statistical_projection",
@@ -1057,7 +1041,7 @@
         "card_id": "CARD-001",
         "phase": "FASE-1",
         "title": "Fundação técnica",
-        "status": "in_progress",
+        "status": "done",
         "opened_at": null,
         "done_at": null
       },
@@ -1149,5 +1133,5 @@
     "panel_path": "docs/meta/process-metrics/index.html",
     "coverage_note": "Cobertura de testes do produto fica no CI (project.config → coverage), não neste painel de tempo de processo."
   },
-  "built_at": "2026-06-10T09:38:13.136812-03:00"
+  "built_at": "2026-06-10T10:48:20.160638-03:00"
 }
