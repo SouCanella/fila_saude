@@ -1,0 +1,19 @@
+---
+description: Logs estruturados — structlog (API) + JSON wrapper (web)
+globs: "apps/**/*.{py,ts,tsx}"
+alwaysApply: false
+---
+
+# Logging
+
+Seguir [docs/observability/logging.md](../../docs/observability/logging.md).
+
+```python
+# ✅ FastAPI
+logger.info("hospitals_listed", count=13, request_id=request_id, uf="RJ")
+
+# ❌
+print(f"user location {lat} {lng} email={email}")
+```
+
+Campos: timestamp, level, service, traceId/requestId, message, context. Sem PII/secrets (ver deny list no doc).

@@ -1,0 +1,354 @@
+openapi: 3.1.0
+info:
+  title: FilaSaúde Brasil API
+  version: 0.1.0
+  description: |
+    API pública de consulta de filas de emergência hospitalares.
+    Contrato first — implementação segue este documento.
+    Prefixo de versão: /api/v1/
+
+servers:
+  - url: http://localhost:8000
+    description: Desenvolvimento local
+  - url: https://api.filasaude.br
+    description: Produção (provisório)
+
+tags:
+  - name: health
+    description: Liveness
+  - name: hospitals
+    description: Consulta de hospitais e filas
+  - name: admin
+    description: Painel interno (auth obrigatória)
+
+paths:
+  /health:
+    get:
+      tags: [health]
+      summary: Liveness probe
+      operationId: getHealth
+      responses:
+        "200":
+          description: Serviço saudável
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+
+  /api/v1/hospitals:
+    get:
+      tags: [hospitals]
+      summary: Lista hospitais com filtros geo e especialidade
+      operationId: listHospitals
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          schema:
+            type: number
+            format: double
+        - name: lng
+          in: query
+          required: true
+          schema:
+            type: number
+            format: double
+        - name: radius_km
+          in: query
+          schema:
+            type: number
+            default: 25
+        - name: specialty
+          in: query
+          schema:
+            type: string
+            example: pediatria
+        - name: uf
+          in: query
+          schema:
+            type: string
+            example: RJ
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum: [score, distance, queue, rating]
+            default: score
+      responses:
+        "200":
+          description: Lista de hospitais com snapshots recentes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/HospitalSummary"
+                  meta:
+                    $ref: "#/components/schemas/ListMeta"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+
+  /api/v1/hospitals/{hospitalId}:
+    get:
+      tags: [hospitals]
+      summary: Detalhe do hospital com filas por especialidade
+      operationId: getHospital
+      parameters:
+        - $ref: "#/components/parameters/HospitalId"
+      responses:
+        "200":
+          description: Detalhe completo
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HospitalDetail"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/v1/hospitals/compare:
+    get:
+      tags: [hospitals]
+      summary: Compara múltiplos hospitais para uma especialidade
+      operationId: compareHospitals
+      parameters:
+        - name: ids
+          in: query
+          required: true
+          description: IDs separados por vírgula (2–4)
+          schema:
+            type: string
+            example: "1,2,3"
+        - name: specialty
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Matriz comparativa
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompareResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+
+  /api/v1/integrations/status:
+    get:
+      tags: [admin]
+      summary: Status das integrações de ingestão
+      operationId: getIntegrationsStatus
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Painel de saúde das fontes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/IntegrationStatus"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    HospitalId:
+      name: hospitalId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    BadRequest:
+      description: Parâmetros inválidos
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          example:
+            code: VALIDATION_ERROR
+            message: Parâmetro lat obrigatório
+            details: {}
+    NotFound:
+      description: Recurso não encontrado
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          example:
+            code: NOT_FOUND
+            message: Hospital não encontrado
+    Unauthorized:
+      description: Token ausente ou inválido
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    Forbidden:
+      description: Sem permissão
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+
+  schemas:
+    HealthResponse:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+
+    ErrorResponse:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+        traceId:
+          type: string
+          format: uuid
+
+    ListMeta:
+      type: object
+      properties:
+        count:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+
+    RiskLevel:
+      type: string
+      enum: [blue, green, yellow, orange, red]
+      description: Classificação Manchester
+
+    QueueSnapshot:
+      type: object
+      properties:
+        specialty:
+          type: string
+        risk_level:
+          $ref: "#/components/schemas/RiskLevel"
+        waiting_count:
+          type: integer
+        avg_wait_24h_minutes:
+          type: integer
+          nullable: true
+        avg_wait_7d_minutes:
+          type: integer
+          nullable: true
+        captured_at:
+          type: string
+          format: date-time
+
+    HospitalSummary:
+      type: object
+      required: [id, name, lat, lng, uf]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        uf:
+          type: string
+        distance_km:
+          type: number
+        google_rating:
+          type: number
+          nullable: true
+        score:
+          type: number
+          description: Ranking composto fila+distância+rating
+        queue_total:
+          type: integer
+        data_freshness_minutes:
+          type: integer
+        integration_status:
+          type: string
+          enum: [ok, stale, error]
+
+    HospitalDetail:
+      allOf:
+        - $ref: "#/components/schemas/HospitalSummary"
+        - type: object
+          properties:
+            address:
+              type: string
+            google_place_id:
+              type: string
+              nullable: true
+            source_name:
+              type: string
+            source_updated_at:
+              type: string
+              format: date-time
+            queues:
+              type: array
+              items:
+                $ref: "#/components/schemas/QueueSnapshot"
+
+    CompareResponse:
+      type: object
+      properties:
+        specialty:
+          type: string
+        hospitals:
+          type: array
+          items:
+            type: object
+            properties:
+              hospital:
+                $ref: "#/components/schemas/HospitalSummary"
+              recommended:
+                type: boolean
+
+    IntegrationStatus:
+      type: object
+      properties:
+        source_id:
+          type: string
+        source_name:
+          type: string
+        uf:
+          type: string
+        last_ok_at:
+          type: string
+          format: date-time
+          nullable: true
+        lag_minutes:
+          type: integer
+        status:
+          type: string
+          enum: [ok, degraded, down]
+        hospitals_covered:
+          type: integer

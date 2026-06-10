@@ -1,0 +1,23 @@
+---
+description: Toda resposta de agente termina com próximo prompt copiável
+alwaysApply: true
+---
+
+# Próximo prompt sugerido
+
+Ao **final de cada resposta** (exceto hotfix explícito ou pergunta puramente informativa de uma linha), incluir:
+
+```markdown
+## Próximo prompt sugerido
+
+> [Uma frase imperativa, copiável, com skill/card/REQ quando aplicável]
+```
+
+Derivar o texto de:
+
+1. `project.config.yaml` (discovery, bootstrap, mvp_planning, design)
+2. Card `in_progress` ou próximo aberto
+3. Specs `approved` vs gaps no hub (#quality, #security)
+4. Ou `python3 scripts/resolve_next_step.py --root . --json`
+
+Deve estar **alinhado** ao card "Próximo passo" do Project Hub (`make hub-build`).

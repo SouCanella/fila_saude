@@ -1,0 +1,143 @@
+# Catálogo de artefatos monitorados pelo Project Hub (journey / activity feed)
+# version: 1
+# Campos por item: path, label, phase, kind, required_for_complete
+# phase: discovery | bootstrap | design | mvp_planning | delivery | retro | FASE-X (via glob cards)
+# kind: gate | artifact | card | spec | delivery | config
+
+version: 1
+
+artifacts:
+  - path: docs/discovery/vision-review.md
+    label: Revisão de visão (fase 0)
+    phase: discovery
+    kind: gate
+    required_for_complete: true
+
+  - path: docs/discovery/bootstrap-hints.md
+    label: Hints de bootstrap
+    phase: discovery
+    kind: artifact
+    required_for_complete: false
+
+  - path: docs/discovery/product-discovery.md
+    label: Product discovery
+    phase: discovery
+    kind: artifact
+    required_for_complete: false
+
+  - path: project.config.yaml
+    label: Configuração do projeto
+    phase: bootstrap
+    kind: config
+    required_for_complete: true
+
+  - path: docs/02-architecture.md
+    label: Arquitetura
+    phase: bootstrap
+    kind: artifact
+    required_for_complete: true
+
+  - path: docs/api/openapi.yaml
+    label: Contrato OpenAPI
+    phase: bootstrap
+    kind: artifact
+    required_for_complete: true
+
+  - path: design-references/APPROVAL.md
+    label: Aprovação visual
+    phase: design
+    kind: gate
+    required_for_complete: true
+
+  - path: docs/planning/mvp-phases.md
+    label: Fases do MVP
+    phase: mvp_planning
+    kind: gate
+    required_for_complete: true
+
+  - path: docs/planning/cards-backlog.md
+    label: Backlog de cards
+    phase: mvp_planning
+    kind: artifact
+    required_for_complete: true
+
+  - path: docs/discovery/requirements-review.md
+    label: Revisão de requisitos
+    phase: mvp_planning
+    kind: gate
+    required_for_complete: true
+
+  - path: docs/backlog/mvp-backlog.md
+    label: Backlog MVP (REQs)
+    phase: mvp_planning
+    kind: artifact
+    required_for_complete: true
+
+  - path: docs/traceability-matrix.md
+    label: Matriz de rastreabilidade
+    phase: mvp_planning
+    kind: artifact
+    required_for_complete: true
+
+  - path: docs/delivery-log.md
+    label: Delivery log
+    phase: delivery
+    kind: delivery
+    required_for_complete: false
+
+  - path: docs/meta/process-timeline.yaml
+    label: Timeline de processo
+    phase: delivery
+    kind: artifact
+    required_for_complete: false
+
+  - path: docs/meta/retrospectives/index.md
+    label: Índice de retrospectivas
+    phase: retro
+    kind: gate
+    required_for_complete: false
+
+  - path: docs/tech-debt.md
+    label: Dívida técnica
+    phase: retro
+    kind: artifact
+    required_for_complete: false
+
+  - path: docs/security/security-checklist.md
+    label: Checklist de segurança
+    phase: delivery
+    kind: artifact
+    required_for_complete: false
+
+  - path: docs/security/privacy-lgpd.md
+    label: LGPD / privacidade
+    phase: bootstrap
+    kind: artifact
+    required_for_complete: false
+
+glob_patterns:
+  - pattern: docs/tracking/cards/CARD-*.md
+    label: Card
+    phase: delivery
+    kind: card
+    required_for_complete: false
+
+  - pattern: tracking/cards/CARD-*.md
+    label: Card
+    phase: delivery
+    kind: card
+    required_for_complete: false
+
+  - pattern: docs/specs/REQ-*.md
+    label: Spec REQ
+    phase: delivery
+    kind: spec
+    required_for_complete: false
+
+  - pattern: specs/REQ-*.md
+
+  - pattern: design-references/screens/*.html
+    label: Mock HTML
+    phase: design
+    kind: artifact
+    required_for_complete: false

@@ -1,0 +1,12 @@
+---
+description: Segurança por entrega
+alwaysApply: false
+---
+
+# Segurança
+
+Checklist: [docs/security/security-checklist.md](../../docs/security/security-checklist.md)
+
+- Sem secrets no código; sem PII em logs
+- `sensitive: true` na spec → threat model obrigatório
+- CVE crítico/alto bloqueia merge

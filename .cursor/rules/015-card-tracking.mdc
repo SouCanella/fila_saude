@@ -1,0 +1,17 @@
+---
+description: Cards obrigatórios — desenvolvimento a partir de CARD-XXX
+globs: docs/tracking/cards/**,docs/planning/**,docs/specs/**,docs/traceability-matrix.md
+alwaysApply: false
+---
+
+# Card tracking
+
+1. `tracking.cards.required` is always true — MD in `docs/tracking/cards/` is canonical.
+2. **No feature-delivery** without an active card (`in_progress`) covering the REQ(s).
+3. Every REQ must belong to ≥1 card (enforced at `mvp_planning.status: complete`).
+4. Do not open card `in_progress` until `mvp_planning.status: complete`.
+5. Branch/PR preferentially per **CARD**, not isolated REQ.
+6. Close card only when **all** linked REQ specs meet DoD.
+
+Workflow: [docs/operations/issue-cards.md](../../docs/operations/issue-cards.md)  
+Skill: `card-tracking`

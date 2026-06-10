@@ -1,0 +1,905 @@
+{
+  "built_at": "2026-06-10T12:38:13.951986+00:00",
+  "project_name": "FilaSaúde Brasil",
+  "template": {
+    "is_upstream": false,
+    "sibling_spawn_required": false,
+    "upstream_dev_mode": false
+  },
+  "modules": {
+    "process": true,
+    "quality": true,
+    "security": true,
+    "accessibility": true,
+    "design": true,
+    "delivery": true,
+    "learning": true,
+    "journey": true
+  },
+  "kpis": {
+    "health_score": 27,
+    "req_fully_green_pct": 0.0,
+    "quality_gaps": 15,
+    "forecast_days_remaining": null,
+    "security_gaps": 1,
+    "a11y_checklist_pct": 100,
+    "design_ready": true,
+    "delivery_total": 1,
+    "delivery_completed": 0,
+    "retro_pending": 0,
+    "benchmark_snapshots": 1,
+    "phases_complete": 4,
+    "phases_total": 4,
+    "current_phase_id": null,
+    "activity_count": 40,
+    "tech_debt_critical": 0,
+    "openapi_valid": true,
+    "openapi_path_count": 5,
+    "compliance_ok": false,
+    "last_release": null
+  },
+  "delivery": {
+    "built_at": "2026-06-10T12:38:13.395819+00:00",
+    "source": "docs/delivery-log.md",
+    "entries": [
+      {
+        "card_id": "CARD-001",
+        "title": "CARD-001",
+        "status": "Em andamento",
+        "req_ids": [
+          "REQ-001",
+          "REQ-001-MONOREPO-DOCKER",
+          "REQ-002",
+          "REQ-002-SCHEMA-MIGRATIONS",
+          "REQ-014",
+          "REQ-014-OBSERVABILIDADE-API"
+        ],
+        "tdd_red_green": "sim (unit + handler integration)",
+        "started_at": "2026-06-10 04:00",
+        "ended_at": "—",
+        "branch": "feature/CARD-001-fundacao-tecnica",
+        "pr": "—",
+        "phase": "FASE-1",
+        "card_path": "docs/tracking/cards/CARD-001-fundacao-tecnica.md"
+      }
+    ],
+    "report": {
+      "total": 1,
+      "completed": 0,
+      "in_progress": 1
+    }
+  },
+  "learning": {
+    "built_at": "2026-06-10T12:38:13.436139+00:00",
+    "retrospectives": [],
+    "report": {
+      "retro_total": 0,
+      "retro_pending": 0,
+      "pending_phases": []
+    },
+    "benchmarks": {
+      "snapshot_count": 1,
+      "snapshots": [
+        {
+          "file": "benchmark-2026-06-04T11-12.json",
+          "stack": "—/—"
+        }
+      ],
+      "medians": {
+        "calendar_ratio": "20.0",
+        "card_count": "4.0",
+        "phase_count": "2.0"
+      },
+      "index_path": "docs/meta/process-benchmarks/index.md"
+    }
+  },
+  "journey": {
+    "built_at": "2026-06-10T12:38:13.878549+00:00",
+    "data_mode": "real",
+    "discovery": {
+      "checklist_ok": false,
+      "items": [
+        {
+          "label": "**Nome provisório acordado:** FilaSaúde Brasil (repo: `fila_saude`)",
+          "ok": true
+        },
+        {
+          "label": "**Problema claro:** cidadão sem visibilidade nacional das filas de emergência por especialidade",
+          "ok": true
+        },
+        {
+          "label": "**Usuário-alvo MVP:** pessoa buscando atendimento de emergência (ou familiar)",
+          "ok": true
+        },
+        {
+          "label": "**Referência:** painel DF ([clst.saude.df.gov.br](https://clst.saude.df.gov.br/)) — evoluir para escopo nacional com localização e rota",
+          "ok": true
+        },
+        {
+          "label": "**Escopo MVP narrativo** definido em [`product-discovery.md`](product-discovery.md) (incluído / fora)",
+          "ok": true
+        },
+        {
+          "label": "**Mockups funcionais** revisados e **aprovados** em [`design-references/screens/`](../../design-references/screens/) — `design.status: approved` (2026-06-09)",
+          "ok": true
+        },
+        {
+          "label": "Início (`index.html`)",
+          "ok": true
+        },
+        {
+          "label": "Onboarding / localização (`onboarding.html`)",
+          "ok": true
+        },
+        {
+          "label": "Mapa com filtros (`mapa.html`)",
+          "ok": true
+        },
+        {
+          "label": "Lista detalhada (`lista.html`)",
+          "ok": true
+        },
+        {
+          "label": "Detalhe do hospital (`hospital.html`)",
+          "ok": true
+        },
+        {
+          "label": "Comparar hospitais (`comparar.html`)",
+          "ok": true
+        },
+        {
+          "label": "Rota e tempo estimado (`rota.html`)",
+          "ok": true
+        },
+        {
+          "label": "Favoritos e alertas (`alertas.html`)",
+          "ok": true
+        },
+        {
+          "label": "Status integrações — admin (`admin-status.html`)",
+          "ok": true
+        },
+        {
+          "label": "Sobre / segurança (`sobre.html`)",
+          "ok": true
+        },
+        {
+          "label": "Frontend: Next.js + TypeScript + Tailwind",
+          "ok": true
+        },
+        {
+          "label": "Backend: FastAPI **ou** NestJS (escolher no bootstrap)",
+          "ok": true
+        },
+        {
+          "label": "DB: PostgreSQL + PostGIS; cache Redis",
+          "ok": true
+        },
+        {
+          "label": "Dev: Docker Compose",
+          "ok": true
+        },
+        {
+          "label": "Contratos: OpenAPI first",
+          "ok": true
+        },
+        {
+          "label": "Dados nacionais não padronizados — adapters por fonte",
+          "ok": true
+        },
+        {
+          "label": "Custo/limites Google Maps em escala — monitorar billing",
+          "ok": true
+        },
+        {
+          "label": "Responsabilidade médica — copy e termos antes de produção",
+          "ok": true
+        },
+        {
+          "label": "Integrações reais exigem contrato jurídico com fontes",
+          "ok": true
+        },
+        {
+          "label": "Hints de stack registrados em [`bootstrap-hints.md`](bootstrap-hints.md)",
+          "ok": true
+        },
+        {
+          "label": "Sem bloqueio conhecido para iniciar **bootstrap A–N**",
+          "ok": true
+        },
+        {
+          "label": "Design aprovado em `design-references/APPROVAL.md` — próximo: **bootstrap** → **planejamento MVP**",
+          "ok": true
+        }
+      ]
+    },
+    "lifecycle": {
+      "phases": [
+        {
+          "id": "discovery",
+          "label": "Fase 0 — Descoberta",
+          "type": "lifecycle",
+          "status": "complete",
+          "progress_pct": 100,
+          "blockers": [],
+          "started_at": "2026-06-10T00:53:00Z",
+          "ended_at": "2026-06-10T02:05:00Z"
+        },
+        {
+          "id": "bootstrap",
+          "label": "Fase 1 — Bootstrap",
+          "type": "lifecycle",
+          "status": "complete",
+          "progress_pct": 100,
+          "blockers": [],
+          "sections_done": 15,
+          "sections_total": 15,
+          "started_at": "2026-06-10T02:05:00Z",
+          "ended_at": "2026-06-10T02:45:00Z"
+        },
+        {
+          "id": "design",
+          "label": "Design — Aprovação visual",
+          "type": "lifecycle",
+          "status": "complete",
+          "progress_pct": 100,
+          "blockers": [],
+          "started_at": "2026-06-10T01:30:00Z",
+          "ended_at": "2026-06-10T02:00:00Z"
+        },
+        {
+          "id": "mvp_planning",
+          "label": "Fase 2 — Planejamento MVP",
+          "type": "lifecycle",
+          "status": "complete",
+          "progress_pct": 100,
+          "blockers": [],
+          "cards_planned": 10,
+          "started_at": "2026-06-10T03:25:00Z",
+          "ended_at": "2026-06-10T03:30:00Z"
+        }
+      ],
+      "phases_complete": 4,
+      "phases_total": 4,
+      "current_phase_id": null
+    },
+    "deliveries": [
+      {
+        "card_id": "CARD-001",
+        "title": "CARD-001",
+        "phase": "FASE-1",
+        "status": "Em andamento",
+        "card_status": "unknown",
+        "req_ids": [
+          "REQ-001",
+          "REQ-001-MONOREPO-DOCKER",
+          "REQ-002",
+          "REQ-002-SCHEMA-MIGRATIONS",
+          "REQ-014",
+          "REQ-014-OBSERVABILIDADE-API"
+        ],
+        "req_details": [
+          {
+            "req_id": "REQ-001",
+            "spec_status": "approved",
+            "quality_gaps": 1,
+            "matrix_status": "in_progress",
+            "test_unit": "green",
+            "test_integ": "pending"
+          },
+          {
+            "req_id": "REQ-001-MONOREPO-DOCKER",
+            "spec_status": null,
+            "quality_gaps": 0,
+            "matrix_status": null,
+            "test_unit": null,
+            "test_integ": null
+          },
+          {
+            "req_id": "REQ-002",
+            "spec_status": "approved",
+            "quality_gaps": 2,
+            "matrix_status": "in_progress",
+            "test_unit": "green",
+            "test_integ": "pending"
+          },
+          {
+            "req_id": "REQ-002-SCHEMA-MIGRATIONS",
+            "spec_status": null,
+            "quality_gaps": 0,
+            "matrix_status": null,
+            "test_unit": null,
+            "test_integ": null
+          },
+          {
+            "req_id": "REQ-014",
+            "spec_status": "approved",
+            "quality_gaps": 2,
+            "matrix_status": "in_progress",
+            "test_unit": "green",
+            "test_integ": "green"
+          },
+          {
+            "req_id": "REQ-014-OBSERVABILIDADE-API",
+            "spec_status": null,
+            "quality_gaps": 0,
+            "matrix_status": null,
+            "test_unit": null,
+            "test_integ": null
+          }
+        ],
+        "quality_gap_count": 5,
+        "tdd_red_green": "sim (unit + handler integration)",
+        "started_at": "2026-06-10 04:00",
+        "ended_at": "—",
+        "branch": "feature/CARD-001-fundacao-tecnica",
+        "pr": "—",
+        "card_path": "docs/tracking/cards/CARD-001-fundacao-tecnica.md",
+        "effort": {
+          "human_active_seconds": 300,
+          "ai_execution_seconds": 1200
+        }
+      },
+      {
+        "card_id": "CARD-010",
+        "title": "E2E fluxos críticos",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-009",
+        "title": "Admin integrações",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-008",
+        "title": "Favoritos, alertas e legal",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-007",
+        "title": "Rota OSRM + MapLibre",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-006",
+        "title": "Detalhe e comparar",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-005",
+        "title": "Onboarding, mapa e lista",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-004",
+        "title": "Shell Next.js + design system",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-003",
+        "title": "Ingestão mock RJ",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      },
+      {
+        "card_id": "CARD-002",
+        "title": "API REST v1 hospitais",
+        "phase": null,
+        "status": "unknown",
+        "card_status": "unknown",
+        "req_ids": [],
+        "req_details": [],
+        "quality_gap_count": 0,
+        "tdd_red_green": null,
+        "started_at": null,
+        "ended_at": null,
+        "branch": null,
+        "pr": null,
+        "card_path": null
+      }
+    ],
+    "activity": [
+      {
+        "at": "—",
+        "source": "delivery_log",
+        "phase": "FASE-1",
+        "kind": "delivery",
+        "path": "docs/delivery-log.md",
+        "summary": "Entrega CARD-001: Em andamento",
+        "card_id": "CARD-001"
+      },
+      {
+        "at": "2026-06-10T12:38:12.585795+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "artifact",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Timeline de processo atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:38:05.021631+00:00",
+        "source": "artifact",
+        "phase": "mvp_planning",
+        "kind": "artifact",
+        "path": "docs/traceability-matrix.md",
+        "summary": "Matriz de rastreabilidade atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:38:04.483619+00:00",
+        "source": "artifact",
+        "phase": "bootstrap",
+        "kind": "config",
+        "path": "project.config.yaml",
+        "summary": "Configuração do projeto atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:38:03.139590+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-001-fundacao-tecnica.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:37:56.701451+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "delivery",
+        "path": "docs/delivery-log.md",
+        "summary": "Delivery log atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:28:53.043724+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "spec",
+        "path": "docs/specs/REQ-014-observabilidade-api.md",
+        "summary": "Spec REQ atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:28:52.730720+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "spec",
+        "path": "docs/specs/REQ-002-schema-migrations.md",
+        "summary": "Spec REQ atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T12:28:44.845621+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "spec",
+        "path": "docs/specs/REQ-001-monorepo-docker.md",
+        "summary": "Spec REQ atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T11:45:28.494048+00:00",
+        "source": "artifact",
+        "phase": "mvp_planning",
+        "kind": "artifact",
+        "path": "docs/planning/cards-backlog.md",
+        "summary": "Backlog de cards atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T04:45:00Z",
+        "source": "agent_turn",
+        "phase": "FASE-1",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada implementation (CARD-001)",
+        "card_id": "CARD-001"
+      },
+      {
+        "at": "2026-06-10T04:00:00Z",
+        "source": "agent_turn",
+        "phase": "FASE-1",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada spec_refinement (CARD-001)",
+        "card_id": "CARD-001"
+      },
+      {
+        "at": "2026-06-10T04:00:00Z",
+        "source": "card",
+        "phase": "FASE-1",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-001-fundacao-tecnica.md",
+        "summary": "CARD-001 aberto",
+        "card_id": "CARD-001"
+      },
+      {
+        "at": "2026-06-10T03:25:00Z",
+        "source": "agent_turn",
+        "phase": "SETUP",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada planning_review",
+        "card_id": null
+      },
+      {
+        "at": "2026-06-10T03:00:00Z",
+        "source": "agent_turn",
+        "phase": "SETUP",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada mvp_planning",
+        "card_id": null
+      },
+      {
+        "at": "2026-06-10T02:40:00Z",
+        "source": "agent_turn",
+        "phase": "SETUP",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada bootstrap",
+        "card_id": null
+      },
+      {
+        "at": "2026-06-10T02:24:33.665842+00:00",
+        "source": "artifact",
+        "phase": "mvp_planning",
+        "kind": "artifact",
+        "path": "docs/backlog/mvp-backlog.md",
+        "summary": "Backlog MVP (REQs) atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:24:17.781670+00:00",
+        "source": "artifact",
+        "phase": "mvp_planning",
+        "kind": "gate",
+        "path": "docs/discovery/requirements-review.md",
+        "summary": "Revisão de requisitos atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:22:35.505030+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-006-detalhe-comparar.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:22:21.936729+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-009-admin-integracoes.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:22:20.204560+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-007-rota-osrm.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:22:19.100452+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-005-mapa-lista.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:22:16.729219+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-003-ingestao-mock-rj.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:22:14.677016+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-002-api-hospitais.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:05:00Z",
+        "source": "agent_turn",
+        "phase": "SETUP",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada discovery",
+        "card_id": null
+      },
+      {
+        "at": "2026-06-10T02:02:06.415350+00:00",
+        "source": "artifact",
+        "phase": "discovery",
+        "kind": "artifact",
+        "path": "docs/discovery/product-discovery.md",
+        "summary": "Product discovery atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:02:02.169417+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-010-e2e-playwright.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:02:00.285447+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-008-favoritos-legal.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:01:56.261509+00:00",
+        "source": "artifact",
+        "phase": "delivery",
+        "kind": "card",
+        "path": "docs/tracking/cards/CARD-004-shell-nextjs.md",
+        "summary": "Card atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T02:01:32.228876+00:00",
+        "source": "artifact",
+        "phase": "mvp_planning",
+        "kind": "gate",
+        "path": "docs/planning/mvp-phases.md",
+        "summary": "Fases do MVP atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:52:14.119480+00:00",
+        "source": "artifact",
+        "phase": "design",
+        "kind": "gate",
+        "path": "design-references/APPROVAL.md",
+        "summary": "Aprovação visual atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:40:48.188967+00:00",
+        "source": "artifact",
+        "phase": "discovery",
+        "kind": "artifact",
+        "path": "docs/discovery/bootstrap-hints.md",
+        "summary": "Hints de bootstrap atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:40:45.747050+00:00",
+        "source": "artifact",
+        "phase": "bootstrap",
+        "kind": "artifact",
+        "path": "docs/02-architecture.md",
+        "summary": "Arquitetura atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:35:00Z",
+        "source": "agent_turn",
+        "phase": "SETUP",
+        "kind": "timeline_round",
+        "path": "docs/meta/process-timeline.yaml",
+        "summary": "Rodada design_mock",
+        "card_id": null
+      },
+      {
+        "at": "2026-06-10T01:22:20.806221+00:00",
+        "source": "artifact",
+        "phase": "bootstrap",
+        "kind": "artifact",
+        "path": "docs/api/openapi.yaml",
+        "summary": "Contrato OpenAPI atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:22:08.435108+00:00",
+        "source": "artifact",
+        "phase": "bootstrap",
+        "kind": "artifact",
+        "path": "docs/security/privacy-lgpd.md",
+        "summary": "LGPD / privacidade atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:20:36.128639+00:00",
+        "source": "artifact",
+        "phase": "discovery",
+        "kind": "gate",
+        "path": "docs/discovery/vision-review.md",
+        "summary": "Revisão de visão (fase 0) atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:16:15.499455+00:00",
+        "source": "artifact",
+        "phase": "design",
+        "kind": "artifact",
+        "path": "design-references/screens/sobre.html",
+        "summary": "Mock HTML atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:16:15.496456+00:00",
+        "source": "artifact",
+        "phase": "design",
+        "kind": "artifact",
+        "path": "design-references/screens/rota.html",
+        "summary": "Mock HTML atualizado",
+        "git_message": null
+      },
+      {
+        "at": "2026-06-10T01:16:15.492456+00:00",
+        "source": "artifact",
+        "phase": "design",
+        "kind": "artifact",
+        "path": "design-references/screens/onboarding.html",
+        "summary": "Mock HTML atualizado",
+        "git_message": null
+      }
+    ],
+    "report": {
+      "delivery_count": 10,
+      "activity_count": 40,
+      "showcase_banner": false,
+      "empty_hints": {}
+    }
+  },
+  "tech_debt": {
+    "built_at": "2026-06-10T12:38:13.486614+00:00",
+    "source": "docs/tech-debt.md",
+    "items": [],
+    "report": {
+      "total": 0,
+      "critical_open_count": 0,
+      "critical_items": [],
+      "has_critical_blocker": false
+    }
+  },
+  "openapi": {
+    "built_at": "2026-06-10T12:38:13.636796+00:00",
+    "source": "docs/api/openapi.yaml",
+    "info": {
+      "title": "FilaSaúde Brasil API",
+      "version": "0.1.0",
+      "description": "API pública de consulta de filas de emergência hospitalares.\nContrato first — implementação segue este documento.\nPrefixo de versão: /api/v1/\n"
+    },
+    "report": {
+      "parseable": true,
+      "path_count": 5,
+      "stub": false,
+      "valid": true,
+      "contract_first": true,
+      "bootstrap_complete": true,
+      "redocly_ran": false
+    }
+  },
+  "release": {
+    "built_at": "2026-06-10T12:38:13.728169+00:00",
+    "changelog_path": "CHANGELOG.md",
+    "report": {
+      "last_version": "0.1.0",
+      "last_tag": null,
+      "last_tag_date": null,
+      "changelog_preview": "## [Unreleased]\n\n### Added\n\n- Discovery completa — visão FilaSaúde Brasil (piloto RJ)\n- Mockups HTML aprovados em `design-references/screens/` (10 telas + a11y)\n- Bootstrap completo — stack Next.js + FastAPI, Docker Compose, OpenAPI v0.1.0\n- Governança SDD/TDD, Project Hub, cards MD",
+      "strategy": "semver_mvp"
+    }
+  },
+  "next_step": {
+    "phase": "delivery",
+    "label": "Implementar CARD-001",
+    "prompt": "Implemente CARD-001 com skill feature-delivery (TDD): comece por REQ-001, valide plano com make quality-validate-specs e feche gaps no hub (#quality) antes de fechar o card.",
+    "skill": "feature-delivery",
+    "blockers": [],
+    "hub_hash": "#quality"
+  }
+}

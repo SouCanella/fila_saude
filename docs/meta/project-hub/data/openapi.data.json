@@ -1,0 +1,18 @@
+{
+  "built_at": "2026-06-10T12:38:13.636796+00:00",
+  "source": "docs/api/openapi.yaml",
+  "info": {
+    "title": "FilaSaúde Brasil API",
+    "version": "0.1.0",
+    "description": "API pública de consulta de filas de emergência hospitalares.\nContrato first — implementação segue este documento.\nPrefixo de versão: /api/v1/\n"
+  },
+  "report": {
+    "parseable": true,
+    "path_count": 5,
+    "stub": false,
+    "valid": true,
+    "contract_first": true,
+    "bootstrap_complete": true,
+    "redocly_ran": false
+  }
+}

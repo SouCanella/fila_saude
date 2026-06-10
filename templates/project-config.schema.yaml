@@ -1,0 +1,184 @@
+# Schema de referência — project.config.yaml
+
+# Produto pós-spawn: ver templates/new-project/template-product.yaml (aplicado por modelo_spawn.py)
+template:
+  is_upstream: boolean  # true só no repo Modelo upstream
+  sibling_spawn_required: boolean  # produto deve nascer via make create-project
+  upstream_dev_mode: boolean  # true no upstream para evoluir o template Modelo
+  spawned_from: string | null  # nome da pasta Modelo (produto)
+  spawned_at: datetime | null
+  upstream_path: string | null
+
+discovery:
+  status:
+    enum: [pending, in_progress, complete]
+  completed_at: datetime | null
+  review_confirmed_at: datetime | null  # vision-review.md (fase 0)
+  skipped: boolean
+
+mvp_planning:
+  status:
+    enum: [pending, in_progress, complete]
+  completed_at: datetime | null
+  review_confirmed_at: datetime | null  # requirements-review.md
+  # Pré-requisitos implícitos: bootstrap.status == complete;
+  # se has_frontend: design.status == approved
+
+bootstrap:
+  status:
+    enum: [incomplete, complete]
+  completed_at: datetime | null
+  sections:
+    A_identidade: pending | complete
+    B_stack: pending | complete
+    C_infra: pending | complete
+    D_testes: pending | complete
+    E_ci: pending | complete
+    F_contratos: pending | complete
+    G_observabilidade: pending | complete
+    H_design: pending | complete  # obrigatório se has_frontend
+    I_seguranca: pending | complete
+    J_rastreio: pending | complete
+    K_i18n: pending | complete
+    L_e2e: pending | complete
+    M_ambientes: pending | complete
+    N_privacidade: pending | complete
+    O_entrega: pending | complete
+
+git:
+  commit:
+    convention: conventional | conventional_card | custom
+    scope_required: boolean
+    card_ref: none | footer | scope | required_footer
+    committer: human_only | human_or_agent
+    custom_template: string | null
+  release:
+    strategy: semver | calver | semver_mvp | none
+    initial_version: string
+    tag_prefix: string
+    changelog: string | null
+    version_file: string | null
+    ci_automation: manual | tag_on_main | github_release
+
+agent_automation:
+  run_tests_without_approval: boolean
+  test_scope: [string]
+  environments: [string]
+
+project:
+  name: string | null
+  domain: string | null
+  doc_language: string
+  has_frontend: boolean | null
+  has_backend: boolean | null
+  has_database: boolean | null
+
+stack:
+  backend: string | null
+  frontend: string | null
+  monorepo: boolean
+
+design:
+  status:
+    enum: [draft, in_review, approved]
+  pattern_version: integer
+  approved_at: datetime | null
+  approved_by: string | null
+  reference_root: string
+  screens:
+    - id: string
+      html: string
+      mocks_complete: boolean
+
+coverage:
+  backend:
+    threshold: number
+    lines: number
+    branches: number
+    functions: number
+    statements: number
+  frontend:
+    threshold: number
+    lines: number
+    branches: number
+    functions: number
+    statements: number
+    exclude: [glob]
+
+i18n:
+  enabled: boolean
+  default_locale: string
+  locales: [string]
+
+e2e:
+  enabled: boolean
+  tool: string | null
+  critical_flows: [string]
+
+ci:
+  platform: github | gitlab | other | null
+
+openapi:
+  path: string
+  contract_first: boolean
+
+tracking:
+  req_prefix: string
+  card_prefix: string
+  phase_prefix: string
+  branch_feature: string
+  branch_hotfix: string
+  cards:
+    required: boolean  # sempre true
+    provider: markdown | github_issues | jira | kanbanize | azure_devops
+    mirror_in_repo: boolean  # sempre true — MD canônico no repo
+    external:
+      base_url: string | null
+      project_key: string | null
+      board_id: string | null
+      repo: string | null
+    sync:
+      req_ids_in_card: boolean
+      card_id_in_spec: boolean
+    states:
+      open: string
+      in_progress: string
+      done: string
+      cancelled: string
+
+process_metrics:
+  enabled: boolean
+  project_started_at: datetime | null
+  idle_threshold_hours: number  # default 4
+  ai_minutes_per_round_default: number  # default 3
+  active_context:
+    activity: string | null
+    phase: string | null
+    card_id: string | null
+    set_at: datetime | null
+
+quality_health:
+  enabled: boolean
+  last_run_json: string
+  last_run_manual: string
+  test_roots:
+    unit_back: string | null
+    unit_front: string | null
+    integration: string | null
+    contract: string | null
+    e2e: string | null
+  coverage_artifacts:
+    backend: string | null
+    frontend: string | null
+
+project_hub:
+  enabled: boolean
+  port: integer
+  modules:
+    process: boolean
+    quality: boolean
+    security: boolean
+    accessibility: boolean
+    design: boolean
+
+# Bootstrap complete: A–G mínimo; H se has_frontend; I–N conforme aplicável

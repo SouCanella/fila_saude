@@ -1,0 +1,18 @@
+---
+description: SDD e TDD — spec e testes antes de código
+globs: docs/specs/**,**/src/**,**/tests/**
+alwaysApply: false
+---
+
+# SDD + TDD
+
+1. Spec aprovada + DoR + camadas de teste marcadas na spec (unit back/front, integração, contrato, E2E se `critical_flow`)
+2. Escrever teste na camada correta → executar → **red**
+3. Código mínimo → **green** → refactor
+4. Ordem full stack: OpenAPI → unit back → integração/contrato → unit front → E2E (se `critical_flow`)
+
+Ver matriz e ordem em [docs/testing/tdd-workflow.md](../../docs/testing/tdd-workflow.md).
+
+**Proibido:** código sem teste novo; remover testes para passar CI.
+
+HTML em `design-references/` não substitui TDD no código real.

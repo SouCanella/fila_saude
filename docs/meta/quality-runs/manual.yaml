@@ -1,0 +1,13 @@
+# Fallback quando CI ainda não exporta latest.json — editar ou pedir à IA
+# Build: ./scripts/build-quality-health.sh
+
+run_at: null
+commit: null
+ci_job: manual
+overall: unknown
+
+layers: {}
+
+coverage: {}
+
+tests: []

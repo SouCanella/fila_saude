@@ -1,0 +1,13 @@
+---
+description: OpenAPI como contrato — contract first
+globs: docs/api/**,**/openapi.*
+alwaysApply: false
+---
+
+# OpenAPI
+
+- Endpoint novo ou alterado: atualizar `docs/api/openapi.yaml` + error-catalog
+- Contract-first: OpenAPI → testes contrato (red) → implementação
+- Validar no CI
+
+Ver [docs/testing/contract-sync.md](../../docs/testing/contract-sync.md).

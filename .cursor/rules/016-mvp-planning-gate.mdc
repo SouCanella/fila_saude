@@ -1,0 +1,13 @@
+---
+description: Planejamento MVP após mocks e bootstrap — antes de abrir cards para entrega
+globs: docs/planning/**,docs/backlog/**,docs/tracking/cards/**,docs/discovery/requirements-review.md
+alwaysApply: false
+---
+
+# MVP planning gate
+
+- `mvp_planning.status: complete` exige: `bootstrap.status: complete`; se `has_frontend: true` → `design.status: approved`.
+- Todo REQ em `mvp-backlog.md` em ≥1 card (`cards-backlog.md` + CARD MD).
+- Humano confirmou `docs/discovery/requirements-review.md`.
+- Rodar `./scripts/validate-planning.sh` antes de marcar complete.
+- Skill: **project-mvp-planning** · Mapa: [00-project-lifecycle.md](../../docs/00-project-lifecycle.md)

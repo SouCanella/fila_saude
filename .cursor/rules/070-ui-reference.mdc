@@ -1,0 +1,14 @@
+---
+description: Protótipo HTML mockado e padrão visual locked
+globs: design-references/**,**/*.{tsx,vue,svelte,css,html}
+alwaysApply: false
+---
+
+# UI reference
+
+- MVP: toda funcionalidade mockada em `design-references/screens/`
+- Pós `design.status: approved`: usar só `shared/components.css` + tokens
+- App real deve ser fiel ao HTML aprovado
+- Mudança de estilo → fluxo em regra `071-ui-change-propagation`
+
+Ver [design-references/README.md](../../design-references/README.md).

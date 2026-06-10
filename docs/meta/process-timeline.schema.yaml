@@ -1,0 +1,51 @@
+# Schema de referência — docs/meta/process-timeline.yaml
+
+version: integer  # 1
+
+updated_at: datetime | null
+
+milestones:
+  - id: string
+    activity:
+      enum:
+        - ideation
+        - discovery
+        - planning_review
+        - mvp_planning_start
+        - mvp_planning_end
+        - bootstrap
+        - design_mock
+        - design_approved
+        - architecture_baseline
+        - phase_delivery_start
+        - phase_delivery_end
+        - phase_retro
+    phase: string  # SETUP | FASE-1 | FASE-2 | unknown
+    started_at: datetime | null
+    ended_at: datetime | null
+    notes: string | null
+
+sessions:
+  - id: string
+    activity: string  # catálogo em process-metrics.md
+    phase: string | null
+    card_id: string | null
+    started_at: datetime
+    ended_at: datetime | null
+    human_active_minutes: number | null
+    notes: string | null
+
+rounds:
+  - id: string
+    at: datetime
+    activity: string
+    phase: string  # SETUP | FASE-X | unknown
+    card_id: string | null
+    human_active_seconds: integer
+    ai_execution_seconds: integer
+    idle_before_seconds: integer
+    source: agent_turn | manual | milestone
+    needs_review: boolean
+    notes: string | null
+
+# aggregates: gerado por build-process-metrics.sh (não editar à mão)

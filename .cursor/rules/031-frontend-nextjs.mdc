@@ -1,0 +1,15 @@
+---
+description: Frontend Next.js — gerado no bootstrap B
+globs: "apps/web/**/*.{tsx,ts,jsx,js}"
+alwaysApply: false
+---
+
+# Frontend Next.js
+
+- App Router (Next.js 15); componentes funcionais + hooks
+- UI fiel a `design-references/` quando `design.status: approved`
+- Tailwind + Radix/shadcn; tokens migrados de `design-tokens.css`
+- TanStack Query para cache/refresh de filas
+- Testes: Vitest + React Testing Library
+- Mapas: Google Maps Platform (MVP)
+- A11y: replicar padrões de `filasaude-a11y.js` (skip, focus trap, tabs ARIA)

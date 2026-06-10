@@ -1,0 +1,13 @@
+# Overrides opcionais REQ → testes (quando parsing da spec não bastar)
+# version: 1
+#
+# Exemplos:
+# overrides:
+#   - file: tests/integ/shared.client.ts
+#     layer: integration
+#     req_ids: [REQ-001, REQ-002]
+#   - layer: contract
+#     scenario: "OpenAPI paths vs implementação"
+#     req_ids: [REQ-001, REQ-002, REQ-004]
+
+overrides: []

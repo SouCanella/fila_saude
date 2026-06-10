@@ -1,0 +1,16 @@
+---
+description: Project Hub — painel unificado processo + qualidade + security + a11y + design
+globs:
+  - docs/meta/project-hub/**
+  - docs/meta/process-timeline.yaml
+  - docs/meta/quality-**
+  - project.config.yaml
+alwaysApply: false
+---
+
+# Project Hub
+
+- URL canônica: `docs/meta/project-hub/` — `make hub-build` · `make hub-serve` (:8090)
+- Substitui entrada separada em process-metrics e quality-health (redirect automático)
+- Overview inclui **next_step** — mesmo prompt que rule `084-next-prompt`
+- Skill: **project-hub**

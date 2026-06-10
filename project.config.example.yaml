@@ -1,0 +1,144 @@
+# Referência pós-bootstrap — NÃO sobrescrever o project.config.yaml virgem do template.
+# Copie seções conforme necessário após discovery + bootstrap complete.
+
+# Pós-spawn (pasta irmã) — aplicado automaticamente por make create-project
+template:
+  is_upstream: false
+  sibling_spawn_required: false
+  upstream_dev_mode: false
+  spawned_from: Modelo
+  spawned_at: "2026-06-09T12:00:00Z"
+  upstream_path: /caminho/para/Modelo
+
+discovery:
+  status: complete
+  completed_at: "2026-06-01T10:00:00Z"
+  review_confirmed_at: "2026-06-01T11:00:00Z"
+  skipped: false
+
+mvp_planning:
+  status: complete
+  completed_at: "2026-06-03T10:00:00Z"
+  review_confirmed_at: "2026-06-03T11:00:00Z"
+
+bootstrap:
+  status: complete
+  completed_at: "2026-06-02T12:00:00Z"
+
+project:
+  name: Meu Produto
+  domain: exemplo.com
+  doc_language: pt-BR
+  has_frontend: true
+  has_backend: true
+  has_database: true
+
+stack:
+  backend: node
+  frontend: react
+  monorepo: false
+
+design:
+  status: approved
+  pattern_version: 1
+  approved_at: "2026-06-02T14:00:00Z"
+  approved_by: "Nome"
+  screens:
+    - id: login
+      html: design-references/screens/login.html
+      mocks_complete: true
+    - id: dashboard
+      html: design-references/screens/dashboard.html
+      mocks_complete: true
+
+i18n:
+  enabled: false
+  default_locale: pt-BR
+
+e2e:
+  enabled: true
+  tool: playwright
+  critical_flows:
+    - login
+
+ci:
+  platform: github
+
+process_metrics:
+  enabled: true
+  project_started_at: "2026-06-01T08:00:00Z"
+  idle_threshold_hours: 4
+  ai_minutes_per_round_default: 3
+  active_context:
+    activity: null
+    phase: null
+    card_id: null
+    set_at: null
+
+tracking:
+  req_prefix: REQ
+  card_prefix: CARD
+  phase_prefix: FASE
+  branch_feature: feature/
+  branch_hotfix: hotfix/
+  cards:
+    required: true
+    provider: markdown
+    mirror_in_repo: true
+    external:
+      base_url: null
+      project_key: null
+      board_id: null
+      repo: null
+    sync:
+      req_ids_in_card: true
+      card_id_in_spec: true
+    states:
+      open: open
+      in_progress: in_progress
+      done: done
+      cancelled: cancelled
+
+quality_health:
+  enabled: true
+  last_run_json: docs/meta/quality-runs/latest.json
+  last_run_manual: docs/meta/quality-runs/manual.yaml
+  test_roots:
+    unit_back: tests/unit
+    unit_front: tests/unit
+    integration: tests/integ
+    contract: tests/contract
+    e2e: tests/e2e
+  coverage_artifacts:
+    backend: coverage/coverage-summary.json
+    frontend: coverage/coverage-summary.json
+
+project_hub:
+  enabled: true
+  port: 8090
+  modules:
+    process: true
+    quality: true
+    security: true
+    accessibility: true
+    design: true
+
+git:
+  commit:
+    convention: conventional
+    scope_required: false
+    card_ref: footer
+    committer: human_or_agent
+  release:
+    strategy: semver
+    initial_version: "0.1.0"
+    tag_prefix: v
+    changelog: CHANGELOG.md
+    ci_automation: manual
+
+agent_automation:
+  run_tests_without_approval: false
+  test_scope:
+    - unit_integration
+  environments:
+    - local_dev_only

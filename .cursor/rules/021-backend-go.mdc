@@ -1,0 +1,14 @@
+---
+description: Backend Go — confirmado no bootstrap B (2026-06-10)
+globs: "apps/api/**/*.go"
+alwaysApply: false
+---
+
+# Backend Go
+
+- Layout: `cmd/server` + `internal/` (domain, handler, repository, adapters, jobs)
+- HTTP: chi ou echo; handlers finos; regra de negócio em `internal/domain`
+- Adapters de ingestão isolados em `internal/adapters/` — um módulo por fonte
+- DB: pgx + PostGIS; migrations com goose/atlas
+- Logs: slog/zap JSON — ver [docs/observability/logging.md](../../docs/observability/logging.md)
+- Contrato: OpenAPI first — gerar tipos com oapi-codegen/ogen; alterar `docs/api/openapi.yaml` antes da implementação

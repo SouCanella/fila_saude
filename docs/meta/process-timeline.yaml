@@ -1,0 +1,133 @@
+# Fonte da verdade — métricas de tempo do processo
+# Regenerar painel: ./scripts/build-process-metrics.sh
+# Realinhado ao spawn 2026-06-10T00:53:19Z (noite 2026-06-09 BRT)
+
+version: 1
+updated_at: "2026-06-10T04:45:00Z"
+
+milestones:
+  - id: milestone-discovery-2026-06-10
+    activity: discovery
+    phase: SETUP
+    started_at: "2026-06-10T00:53:00Z"
+    ended_at: "2026-06-10T02:05:00Z"
+  - id: milestone-design-approved-2026-06-10
+    activity: design_approved
+    phase: SETUP
+    started_at: "2026-06-10T01:30:00Z"
+    ended_at: "2026-06-10T02:00:00Z"
+  - id: milestone-bootstrap-complete-2026-06-10
+    activity: bootstrap
+    phase: SETUP
+    started_at: "2026-06-10T02:05:00Z"
+    ended_at: "2026-06-10T02:45:00Z"
+  - id: milestone-mvp-planning-start-2026-06-10
+    activity: mvp_planning_start
+    phase: SETUP
+    started_at: "2026-06-10T03:00:00Z"
+    ended_at: "2026-06-10T03:25:00Z"
+  - id: milestone-mvp-planning-end-2026-06-10
+    activity: mvp_planning_end
+    phase: SETUP
+    started_at: "2026-06-10T03:25:00Z"
+    ended_at: "2026-06-10T03:30:00Z"
+    notes: "requirements-review.md aprovado — 15 REQs, 10 cards, 3 fases"
+  - id: milestone-fase1-delivery-start-2026-06-10
+    activity: phase_delivery_start
+    phase: FASE-1
+    started_at: "2026-06-10T04:00:00Z"
+    ended_at: null
+    notes: "CARD-001 in_progress — specs draft REQ-001, 002, 014"
+
+sessions: []
+rounds:
+  - id: round-2026-06-10T00-58
+    at: "2026-06-10T00:58:00Z"
+    activity: discovery
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 600
+    ai_execution_seconds: 180
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T01-35
+    at: "2026-06-10T01:35:00Z"
+    activity: design_mock
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 900
+    ai_execution_seconds: 120
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T02-05
+    at: "2026-06-10T02:05:00Z"
+    activity: discovery
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 300
+    ai_execution_seconds: 90
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T02-40
+    at: "2026-06-10T02:40:00Z"
+    activity: bootstrap
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 600
+    ai_execution_seconds: 300
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T03-00
+    at: "2026-06-10T03:00:00Z"
+    activity: mvp_planning
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 900
+    ai_execution_seconds: 360
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T03-25
+    at: "2026-06-10T03:25:00Z"
+    activity: planning_review
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 120
+    ai_execution_seconds: 240
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T03-30
+    at: "2026-06-10T03:30:00Z"
+    activity: mvp_planning
+    phase: SETUP
+    card_id: null
+    human_active_seconds: 60
+    ai_execution_seconds: 30
+    idle_before_seconds: 0
+    source: human_gate
+    needs_review: false
+  - id: round-2026-06-10T04-00
+    at: "2026-06-10T04:00:00Z"
+    activity: spec_refinement
+    phase: FASE-1
+    card_id: CARD-001
+    human_active_seconds: 180
+    ai_execution_seconds: 300
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false
+  - id: round-2026-06-10T04-45
+    at: "2026-06-10T04:45:00Z"
+    activity: implementation
+    phase: FASE-1
+    card_id: CARD-001
+    human_active_seconds: 120
+    ai_execution_seconds: 900
+    idle_before_seconds: 0
+    source: agent_turn
+    needs_review: false

@@ -1,0 +1,33 @@
+---
+description: Retrospectiva por fase entregue — soft gate (retro ou skip documentado)
+alwaysApply: true
+---
+
+# Retrospectiva por fase
+
+## Quando
+
+Todos os cards com `phase: FASE-X` em `done` → conduzir retro (skill **phase-retrospective**).
+
+## Documentação obrigatória (soft gate)
+
+- Registrar em `docs/meta/retrospectives/FASE-X-retro.md` + linha em `index.md`
+- `status: completed` **ou** `status: skipped` com `skipped_reason` e data
+- **Não bloquear** abrir ou implementar cards da fase seguinte
+
+## Ao abrir card de fase posterior
+
+Se `FASE-(X-1)` tem todos os cards `done` e `index.md` não tem `completed` nem `skipped` para essa fase:
+
+1. **Avisar** que falta retro ou skip documentado
+2. Oferecer **phase-retrospective** ou registro de skip em um turno
+3. **Não** impedir feature-delivery nem card-tracking
+
+## Proibido
+
+- Marcar fase como "concluída" em `mvp-phases.md` ou comunicações sem entrada em `index.md` (`completed` ou `skipped`)
+
+## Referências
+
+- [docs/meta/retrospectives/README.md](../../docs/meta/retrospectives/README.md)
+- [improving-the-template.md](../../docs/meta/improving-the-template.md) — feedback upstream ao Modelo

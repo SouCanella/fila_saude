@@ -1,0 +1,299 @@
+{
+  "built_at": "2026-06-10T12:38:13.255202+00:00",
+  "module_help": {
+    "title": "Segurança do projeto",
+    "summary": "Consolida o checklist global de entrega (docs/security/) com REQs marcados como sensíveis ou que exigem camada security na spec.",
+    "sources": [
+      "docs/security/security-checklist.md",
+      "docs/specs/REQ-*.md (frontmatter sensitive + seção threat model)"
+    ],
+    "actions": [
+      "Completar checklist global antes de merge",
+      "REQ sensível sem threat model → adicionar seção na spec",
+      "REQ com camada security sem spec → criar spec approved"
+    ]
+  },
+  "checklist_path": "docs/security/security-checklist.md",
+  "checklist": [
+    {
+      "label": "Autenticação e autorização corretas",
+      "checked": false
+    },
+    {
+      "label": "Validação e sanitização de entrada",
+      "checked": false
+    },
+    {
+      "label": "Sem exposição de dados sensíveis em resposta/log",
+      "checked": false
+    },
+    {
+      "label": "Erros sem detalhes internos ao cliente",
+      "checked": false
+    },
+    {
+      "label": "Secrets fora do código",
+      "checked": false
+    },
+    {
+      "label": "Dependências sem CVE crítico/alto",
+      "checked": false
+    },
+    {
+      "label": "CORS e headers de segurança (se API web)",
+      "checked": false
+    },
+    {
+      "label": "Rate limit onde aplicável",
+      "checked": false
+    }
+  ],
+  "requirements": [
+    {
+      "req_id": "REQ-001",
+      "title": "Monorepo e Docker",
+      "priority": "P0",
+      "req_kind": "non_functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": true,
+      "spec_status": "approved"
+    },
+    {
+      "req_id": "REQ-002",
+      "title": "Schema e migrations",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": true,
+      "spec_status": "approved"
+    },
+    {
+      "req_id": "REQ-003",
+      "title": "API REST v1 hospitais",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-004",
+      "title": "Adapter mock RJ",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-005",
+      "title": "Shell Next.js + design system",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-006",
+      "title": "Onboarding e localização",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-007",
+      "title": "Mapa, lista e início",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-008",
+      "title": "Detalhe hospital",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-009",
+      "title": "Comparar hospitais",
+      "priority": "P1",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-010",
+      "title": "Rota OSRM + MapLibre",
+      "priority": "P0",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-011",
+      "title": "Favoritos e alertas",
+      "priority": "P2",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-012",
+      "title": "Sobre, LGPD e avisos",
+      "priority": "P0",
+      "req_kind": "non_functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-013",
+      "title": "Admin integrações",
+      "priority": "P1",
+      "req_kind": "functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    },
+    {
+      "req_id": "REQ-014",
+      "title": "Observabilidade API",
+      "priority": "P1",
+      "req_kind": "non_functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": true,
+      "spec_status": "approved"
+    },
+    {
+      "req_id": "REQ-015",
+      "title": "E2E fluxos críticos",
+      "priority": "P1",
+      "req_kind": "non_functional",
+      "sensitive": false,
+      "security_required": false,
+      "has_threat_model": false,
+      "spec_status": "missing"
+    }
+  ],
+  "gaps": [],
+  "compliance": {
+    "lgpd": {
+      "filled": true,
+      "pii_rows": 4
+    },
+    "change_types": [
+      {
+        "section": "Login / auth",
+        "items": [
+          {
+            "label": "Senha nunca em log",
+            "checked": false
+          },
+          {
+            "label": "Rate limit brute force",
+            "checked": false
+          },
+          {
+            "label": "Sessão/token seguro",
+            "checked": false
+          },
+          {
+            "label": "Threat model se `sensitive: true`",
+            "checked": false
+          }
+        ],
+        "checked": 0,
+        "total": 4
+      },
+      {
+        "section": "API",
+        "items": [
+          {
+            "label": "Autorização por recurso",
+            "checked": false
+          },
+          {
+            "label": "Validação schema",
+            "checked": false
+          },
+          {
+            "label": "Erros padronizados (error-catalog)",
+            "checked": false
+          }
+        ],
+        "checked": 0,
+        "total": 3
+      },
+      {
+        "section": "Upload",
+        "items": [
+          {
+            "label": "Tipo/tamanho validados",
+            "checked": false
+          },
+          {
+            "label": "Armazenamento isolado",
+            "checked": false
+          },
+          {
+            "label": "Scan malware se aplicável",
+            "checked": false
+          }
+        ],
+        "checked": 0,
+        "total": 3
+      },
+      {
+        "section": "UI",
+        "items": [
+          {
+            "label": "XSS: escape/sanitize",
+            "checked": false
+          },
+          {
+            "label": "Dados sensíveis não em URL/localStorage indevido",
+            "checked": false
+          }
+        ],
+        "checked": 0,
+        "total": 2
+      }
+    ],
+    "ok": false
+  },
+  "report": {
+    "checklist_pct": 0,
+    "checklist_ok": 0,
+    "checklist_total": 8,
+    "global_checklist_complete": false,
+    "sensitive_count": 0,
+    "sensitive_gaps": 0,
+    "gap_count": 1,
+    "compliance_ok": false
+  }
+}

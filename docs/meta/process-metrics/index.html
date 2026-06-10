@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    if (!new URLSearchParams(location.search).get("embed")) {
+      location.replace("/project-hub/#process");
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Métricas do processo — Modelo</title>
+  <script src="../project-hub/shared/theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="process-metrics.css" />
+  <script>if (new URLSearchParams(location.search).get("embed")) document.documentElement.classList.add("pm-embed");</script>
+</head>
+<body class="pm-page" id="pmPage">
+  <header class="pm-topbar">
+    <div class="pm-brand">
+      <span class="pm-brand-mark">Modelo · Process Intelligence</span>
+      <h1 class="pm-brand-title" id="reportProjectName">Relatório de engenharia</h1>
+      <p class="pm-brand-sub" id="reportSubtitle">Ferramenta do método — não é dashboard do produto</p>
+    </div>
+    <div class="pm-header-actions">
+      <button type="button" class="pm-theme-btn" id="themeToggle" aria-label="Alternar tema">Modo escuro</button>
+      <a class="pm-link-doc" href="guide.html" title="Como registrar rodadas, interpretar previsões e needs_review">Guia de métricas</a>
+      <a class="pm-link-doc" href="/quality-health/" title="TDD, cobertura e rastreio REQ → testes">Saúde da qualidade</a>
+    </div>
+  </header>
+
+  <main class="pm-main">
+    <div id="metricsAlert" class="alert alert-error hidden" role="alert"></div>
+    <div id="contextBanners" class="pm-context-banners" aria-live="polite"></div>
+
+    <aside class="pm-disclaimer" id="globalDisclaimer" aria-live="polite">
+      <div class="pm-disclaimer-icon" aria-hidden="true">!</div>
+      <div>
+        <strong>Previsões ≠ datas de negócio</strong>
+        <p id="disclaimerLongText">
+          Barras e eventos roxos / «(est.)» são projeção de um modelo estatístico interno (médias de esforço e razão calendário).
+          Não representam SLA, contrato ou promessa de entrega ao cliente.
+        </p>
+      </div>
+    </aside>
+
+    <section class="pm-delivery-hero" id="deliveryHighlight" aria-label="Conclusão prevista do backlog"></section>
+
+    <div class="pm-hero">
+      <div>
+        <h2 style="margin:0 0 0.5rem;font-size:1.35rem;font-weight:600">Visão executiva do fluxo</h2>
+        <p>
+          Realizado (rodadas, marcos, <code>opened_at</code>/<code>done_at</code> dos cards) vs projeção estatística do backlog.
+          Fonte: <code>docs/meta/process-timeline.yaml</code>
+        </p>
+      </div>
+    </div>
+
+    <div class="pm-kpi-grid" id="kpiGrid"></div>
+
+    <nav class="pm-tabs" aria-label="Seções">
+      <button type="button" class="active" data-tab="overview">Visão geral</button>
+      <button type="button" data-tab="schedule">Cronograma</button>
+      <button type="button" data-tab="phases">Por fase</button>
+      <button type="button" data-tab="forecast">Previsões</button>
+      <button type="button" data-tab="ledger">Ledger</button>
+    </nav>
+
+    <section class="pm-panel active" data-panel="overview">
+      <div class="pm-effort-legend-global pm-card" id="globalEffortLegend" aria-label="Legenda de esforço"></div>
+      <div class="pm-card pm-card-full">
+        <h2>Médias por atividade (por rodada)</h2>
+        <p class="pm-empty">Base estatística usada para estimar cards e fases pendentes.</p>
+        <div class="pm-avg-grid" id="activityAverages"></div>
+      </div>
+      <div class="pm-grid-2">
+        <div class="pm-card">
+          <h2>Distribuição do projeto</h2>
+          <div id="overviewDonut"></div>
+          <ul class="pm-legend" id="overviewLegend"></ul>
+        </div>
+        <div class="pm-card">
+          <h2>Tempo por fase</h2>
+          <div id="phaseBarsChart"></div>
+        </div>
+        <div class="pm-card">
+          <h2>Tempo por atividade (total)</h2>
+          <div id="activityBarsChart"></div>
+        </div>
+        <div class="pm-card">
+          <h2>Esforço por dia</h2>
+          <div id="byDayChart"></div>
+        </div>
+      </div>
+      <div class="pm-card">
+        <h2>Marcos registrados</h2>
+        <div class="pm-table-wrap" id="milestonesTable"></div>
+      </div>
+    </section>
+
+    <section class="pm-panel" data-panel="schedule">
+      <div class="pm-disclaimer-compact" id="scheduleDisclaimer"></div>
+      <div class="pm-card pm-card-full">
+        <h2>Calendário</h2>
+        <div class="pm-legend-keys">
+          <span><i class="pm-lg-bar pm-lg-actual"></i> Entrega rastreada (real)</span>
+          <span><i class="pm-lg-bar pm-lg-planned"></i> Projeção estatística (est.) — não é data de negócio</span>
+        </div>
+        <div class="pm-cal-nav">
+          <button type="button" class="pm-theme-btn" id="calPrev" aria-label="Mês anterior">←</button>
+          <strong id="calMonthLabel">—</strong>
+          <button type="button" class="pm-theme-btn" id="calNext" aria-label="Próximo mês">→</button>
+        </div>
+        <div id="deliveryCalendar"></div>
+      </div>
+      <div class="pm-card pm-card-full">
+        <h2>Gantt — realizado vs projeção estatística</h2>
+        <div class="pm-gantt-legend">
+          <span><i class="pm-lg-bar pm-lg-actual"></i> Realizado / rastreado</span>
+          <span><i class="pm-lg-bar pm-lg-planned"></i> Projeção (est.) — modelo, não compromisso</span>
+        </div>
+        <div class="pm-gantt-wrap" id="ganttChart"></div>
+      </div>
+    </section>
+
+    <section class="pm-panel" data-panel="phases">
+      <div class="pm-effort-legend-global pm-card" id="phaseEffortLegend" aria-label="Legenda de esforço"></div>
+      <div class="pm-toolbar">
+        <label>Fase <select id="phaseSelect" class="pm-select"></select></label>
+      </div>
+      <div class="pm-grid-2">
+        <div class="pm-card">
+          <h2 id="phaseTitle">Fase</h2>
+          <div id="phaseDonut"></div>
+          <ul class="pm-legend" id="phaseLegend"></ul>
+        </div>
+        <div class="pm-card">
+          <h2>Cards nesta fase</h2>
+          <div id="phaseCardsChart"></div>
+          <div class="pm-table-wrap" id="phaseCardsTable"></div>
+        </div>
+      </div>
+      <div class="pm-card" id="phaseCompare"></div>
+    </section>
+
+    <section class="pm-panel" data-panel="forecast">
+      <div class="pm-disclaimer-compact" id="forecastDisclaimer"></div>
+      <div class="pm-card">
+        <h2>Modelo estatístico de previsão</h2>
+        <p class="pm-empty" id="forecastMethod"></p>
+        <p class="pm-forecast-mvp-date" id="forecastMvpDate"></p>
+      </div>
+      <div class="pm-card pm-card-full">
+        <h2>Cronograma de entregas previstas (est.)</h2>
+        <p class="pm-empty">Datas calculadas pelo mesmo encadeamento do Gantt — projeção estatística, não compromisso comercial.</p>
+        <div class="pm-table-wrap" id="forecastDeliverySchedule"></div>
+      </div>
+      <div class="pm-grid-2">
+        <div class="pm-card"><h2>Próximas fases (projeção)</h2><div id="forecastPhases"></div></div>
+        <div class="pm-card"><h2>Próximos cards (projeção)</h2><div id="forecastCards"></div></div>
+      </div>
+      <div class="pm-card">
+        <h2>Comparativo: esforço realizado vs projeção (fases)</h2>
+        <div id="forecastCompareChart"></div>
+      </div>
+    </section>
+
+    <section class="pm-panel" data-panel="ledger">
+      <div class="pm-toolbar">
+        <label>Filtrar fase <select id="ledgerPhaseFilter" class="pm-select"><option value="all">Todas</option></select></label>
+      </div>
+      <div class="pm-card pm-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Quando</th><th>Fase</th><th>Atividade</th><th>Card</th>
+              <th>Humano</th><th>IA</th><th>Gap</th>
+            </tr>
+          </thead>
+          <tbody id="ledgerBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="pm-footer">
+      Build: <span id="builtAt">—</span> ·
+      <code>docs/meta/process-metrics/process-metrics.data.json</code>
+    </p>
+  </main>
+
+  <script src="process-metrics.js"></script>
+  <script>
+    ProcessMetrics.boot().catch((e) => {
+      const el = document.getElementById("metricsAlert");
+      el.textContent =
+        e.message + " — rode ./scripts/build-process-metrics.sh e ./scripts/serve-process-metrics.sh";
+      el.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>

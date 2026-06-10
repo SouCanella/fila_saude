@@ -1,0 +1,163 @@
+{
+  "built_at": "2026-06-10T12:38:13.304895+00:00",
+  "module_help": {
+    "title": "Acessibilidade (a11y)",
+    "summary": "A11y = tornar a interface utilizável por mais pessoas — leitores de tela, teclado, contraste, labels. Este painel lê o checklist WCAG básico em design-references/APPROVAL.md e o status dos mocks HTML por tela.",
+    "glossary": [
+      {
+        "term": "WCAG",
+        "definition": "Diretrizes internacionais de acessibilidade web (níveis A, AA, AAA)."
+      },
+      {
+        "term": "Contraste AA",
+        "definition": "Texto legível sobre fundo — ratio mínimo ~4.5:1."
+      },
+      {
+        "term": "Foco visível",
+        "definition": "Indicador claro de qual elemento está ativo ao tabular."
+      },
+      {
+        "term": "Labels",
+        "definition": "Inputs associados a texto ou aria-label para leitores de tela."
+      }
+    ],
+    "sources": [
+      "design-references/APPROVAL.md (seção Acessibilidade)",
+      "project.config.yaml → design.screens"
+    ]
+  },
+  "checklist": [
+    {
+      "label": "Contraste WCAG AA alvo (badges de risco)",
+      "checked": true
+    },
+    {
+      "label": "Foco visível em interativos (`:focus-visible` em links e botões)",
+      "checked": true
+    },
+    {
+      "label": "Labels em inputs de filtro (`for` / `id` no mapa)",
+      "checked": true
+    },
+    {
+      "label": "`lang=\"pt-BR\"` no `<html>`",
+      "checked": true
+    },
+    {
+      "label": "Navegação por teclado nos fluxos críticos",
+      "checked": true
+    }
+  ],
+  "screens": [
+    {
+      "id": "index",
+      "title": "Início",
+      "html": "design-references/screens/index.html",
+      "preview_url": "/design-references/screens/index.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "onboarding",
+      "title": "Onboarding / localização",
+      "html": "design-references/screens/onboarding.html",
+      "preview_url": "/design-references/screens/onboarding.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "mapa",
+      "title": "Mapa com filtros",
+      "html": "design-references/screens/mapa.html",
+      "preview_url": "/design-references/screens/mapa.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "lista",
+      "title": "Lista detalhada",
+      "html": "design-references/screens/lista.html",
+      "preview_url": "/design-references/screens/lista.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "hospital",
+      "title": "Detalhe do hospital",
+      "html": "design-references/screens/hospital.html",
+      "preview_url": "/design-references/screens/hospital.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "comparar",
+      "title": "Comparar hospitais",
+      "html": "design-references/screens/comparar.html",
+      "preview_url": "/design-references/screens/comparar.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "rota",
+      "title": "Rota e tempo estimado",
+      "html": "design-references/screens/rota.html",
+      "preview_url": "/design-references/screens/rota.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "alertas",
+      "title": "Favoritos e alertas",
+      "html": "design-references/screens/alertas.html",
+      "preview_url": "/design-references/screens/alertas.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "admin-status",
+      "title": "Status integrações (admin)",
+      "html": "design-references/screens/admin-status.html",
+      "preview_url": "/design-references/screens/admin-status.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    },
+    {
+      "id": "sobre",
+      "title": "Sobre / segurança",
+      "html": "design-references/screens/sobre.html",
+      "preview_url": "/design-references/screens/sobre.html",
+      "mocks_complete": true,
+      "a11y_status": "done",
+      "a11y_label": "OK",
+      "linked_reqs": []
+    }
+  ],
+  "gaps": [],
+  "report": {
+    "checklist_pct": 100,
+    "checklist_ok": 5,
+    "checklist_total": 5,
+    "screens_total": 10,
+    "screens_ready": 10,
+    "a11y_partial": 0,
+    "gap_count": 0
+  }
+}

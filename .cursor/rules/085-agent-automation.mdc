@@ -1,0 +1,27 @@
+---
+description: Automação de testes por agentes IA — respeitar project.config.yaml agent_automation
+alwaysApply: true
+---
+
+# Automação de agentes (testes)
+
+Valores canônicos em `project.config.yaml` → `agent_automation`.
+
+## Executar testes
+
+- Se `run_tests_without_approval: false` (default): **perguntar** ao humano antes de rodar suíte local/CI (`make test`, `npm test`, `pytest`, etc.).
+- Se `run_tests_without_approval: true`: agente **pode** executar testes dentro de `test_scope` e `environments` sem pedir OK a cada comando.
+- Respeitar `test_scope` (ex.: não rodar E2E se não listado).
+- Respeitar `environments` (ex.: `local_dev_only` — não disparar pipelines remotas sem pedido).
+
+## O que NÃO muda
+
+- **Commit/push** continuam só quando o humano pedir (user rule + `git.commit.committer`).
+- Spec gate, card `in_progress`, design approved — inalterados.
+- Secrets: nunca commitar `.env` ou credenciais.
+
+## Referências
+
+- [docs/operations/commit-policy.md](../../docs/operations/commit-policy.md)
+- [docs/operations/release-policy.md](../../docs/operations/release-policy.md)
+- Skill **feature-delivery** — passo de testes e quality-health

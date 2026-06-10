@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    if (!new URLSearchParams(location.search).get("embed")) {
+      location.replace("/project-hub/#quality");
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saúde da qualidade — Modelo</title>
+  <script src="../project-hub/shared/theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="quality-health.css" />
+  <script>if (new URLSearchParams(location.search).get("embed")) document.documentElement.classList.add("pm-embed");</script>
+</head>
+<body class="pm-page qh-page" id="qhPage">
+  <header class="pm-topbar">
+    <div class="pm-brand">
+      <span class="pm-brand-mark">Modelo · Quality Health</span>
+      <h1 class="pm-brand-title">Saúde da qualidade</h1>
+      <p class="pm-brand-sub">Visão executiva: confiança no produto, cobertura e cenários de teste</p>
+    </div>
+    <div class="pm-header-actions">
+      <button type="button" class="pm-theme-btn" id="themeToggle">Modo escuro</button>
+      <a class="pm-link-doc" href="guide.html">Guia</a>
+      <a class="pm-link-doc" href="/process-metrics/" title="Painel de tempo do processo">Tempo do processo</a>
+    </div>
+  </header>
+  <main class="pm-main">
+    <div class="pm-disclaimer qh-disclaimer">
+      <span class="pm-disclaimer-icon">i</span>
+      <div>
+        <strong>Para gestores e produto</strong>
+        <p>Este painel traduz testes automatizados em indicadores de confiança. Verde = comportamento validado; vermelho = risco antes do release; cinza = ainda não testado.</p>
+      </div>
+    </div>
+
+    <section class="pm-delivery-hero" id="runHero"></section>
+
+    <div class="qh-action-bar" id="actionBar">
+      <button type="button" class="qh-btn qh-btn-primary" id="btnRunTests">▶ Executar testes</button>
+      <button type="button" class="qh-btn qh-btn-secondary" id="btnRefresh">↻ Atualizar painel</button>
+      <span class="qh-action-status" id="actionStatus" aria-live="polite"></span>
+    </div>
+
+    <div class="pm-kpi-grid" id="kpiGrid"></div>
+
+    <div class="pm-toolbar qh-toolbar" id="filterBar" aria-label="Filtros globais">
+      <label>Requisito <select id="filterReq" class="pm-select"><option value="all">Todos</option></select></label>
+      <label>Status <select id="filterStatus" class="pm-select">
+        <option value="all">Todos</option>
+        <option value="pass">Aprovado</option>
+        <option value="fail">Falhou</option>
+        <option value="pending">Planejado</option>
+        <option value="missing">Não criado</option>
+        <option value="unknown">Não executado</option>
+      </select></label>
+      <label>Prioridade <select id="filterPriority" class="pm-select">
+        <option value="all">Todas</option>
+        <option value="P0">P0</option>
+        <option value="P1">P1</option>
+        <option value="P2+">P2+</option>
+      </select></label>
+      <label>Tipo <select id="filterKind" class="pm-select">
+        <option value="all">Todos</option>
+        <option value="functional">Funcional</option>
+        <option value="non_functional">NFR</option>
+      </select></label>
+      <button type="button" class="qh-btn qh-btn-secondary" id="filterClear">Limpar filtros</button>
+      <span class="qh-filter-count" id="filterCount" aria-live="polite"></span>
+    </div>
+
+    <nav class="pm-tabs" aria-label="Seções">
+      <button type="button" class="active" data-tab="overview">Visão executiva</button>
+      <button type="button" data-tab="requirements">Por requisito</button>
+      <button type="button" data-tab="unit_back">Unit. back</button>
+      <button type="button" data-tab="unit_front">Unit. front</button>
+      <button type="button" data-tab="integration">Integração API</button>
+      <button type="button" data-tab="e2e">E2E</button>
+      <button type="button" data-tab="gaps">Riscos e gaps</button>
+    </nav>
+
+    <section class="pm-panel active" data-panel="overview">
+      <div class="pm-grid-2 qh-charts-row">
+        <div class="pm-card qh-card-chart" id="healthGaugeCard">
+          <h2>Índice de saúde</h2>
+          <p class="qh-card-lead">Nota consolidada dos testes obrigatórios (0–100).</p>
+          <div id="healthGauge"></div>
+        </div>
+        <div class="pm-card qh-card-chart" id="testStatusCard">
+          <h2>Resultado dos cenários</h2>
+          <p class="qh-card-lead">Distribuição da última execução conhecida.</p>
+          <div id="testStatusChart"></div>
+        </div>
+      </div>
+      <div class="pm-grid-2">
+        <div class="pm-card qh-card-chart">
+          <h2>Cobertura de código</h2>
+          <p class="qh-card-lead">Percentual de linhas exercitadas vs meta do projeto.</p>
+          <div id="coverageChart"></div>
+        </div>
+        <div class="pm-card qh-card-chart">
+          <h2>Confiança por camada</h2>
+          <p class="qh-card-lead">Quanto de cada tipo de teste está aprovado.</p>
+          <div id="layerHealthChart"></div>
+        </div>
+      </div>
+      <div class="pm-card" id="execSummary"></div>
+      <div class="pm-card" id="legendBox"></div>
+    </section>
+
+    <section class="pm-panel" data-panel="requirements">
+      <div class="pm-card">
+        <h2>Requisitos e maturidade de testes</h2>
+        <p class="qh-card-lead">Cada linha é uma entrega de negócio; colunas indicam se o comportamento foi validado automaticamente.</p>
+        <div class="pm-table-wrap qh-table-pro" id="reqTable"></div>
+      </div>
+    </section>
+
+    <section class="pm-panel" data-panel="unit_back"><div class="pm-card"><div id="layer_unit_back"></div></div></section>
+    <section class="pm-panel" data-panel="unit_front"><div class="pm-card"><div id="layer_unit_front"></div></div></section>
+    <section class="pm-panel" data-panel="integration"><div class="pm-card"><div id="layer_integration"></div></div></section>
+    <section class="pm-panel" data-panel="e2e">
+      <div class="pm-card">
+        <div class="qh-e2e-head">
+          <div>
+            <h2>Cenários ponta a ponta (E2E)</h2>
+            <p class="qh-card-lead">Fluxos reais que simulam o uso do cliente — ideal para demos com stakeholders.</p>
+          </div>
+          <div class="qh-view-toggle" role="group" aria-label="Modo de visualização E2E">
+            <button type="button" class="qh-toggle-btn active" data-e2e-view="cards">Cards</button>
+            <button type="button" class="qh-toggle-btn" data-e2e-view="table">Tabela</button>
+          </div>
+        </div>
+        <div id="e2ePanel"></div>
+      </div>
+    </section>
+
+    <section class="pm-panel" data-panel="gaps">
+      <div class="pm-card">
+        <h2>Riscos antes do release</h2>
+        <p class="qh-card-lead">Requisitos com lacunas de teste — priorize estes itens no backlog de qualidade.</p>
+        <div id="gapsBox"></div>
+      </div>
+    </section>
+
+    <footer class="pm-footer"><span id="builtAt"></span></footer>
+  </main>
+  <script src="quality-health.js"></script>
+  <script>QualityHealth.init();</script>
+</body>
+</html>

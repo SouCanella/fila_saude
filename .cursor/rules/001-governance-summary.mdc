@@ -1,0 +1,22 @@
+---
+description: Resumo SDD+TDD e links obrigatórios
+alwaysApply: true
+---
+
+# Governança
+
+- **Humano:** [INICIO.md](../../INICIO.md) → [docs/00-project-lifecycle.md](../../docs/00-project-lifecycle.md) → [docs/00-getting-started.md](../../docs/00-getting-started.md)
+- **Detalhe:** [docs/00-project-governance.md](../../docs/00-project-governance.md)
+
+## Regras
+
+- **Spawn (Fase −1):** `make create-project` → pasta irmã — [spawn-project.md](../../docs/operations/spawn-project.md)
+- **Descoberta leve:** visão/escopo → **bootstrap** + mocks → **planejamento MVP** (fases, cards, REQs)
+- **Cards:** dev a partir de CARD-XXX; skill `card-tracking`
+- SDD: spec **approved** antes de código (exceto hotfix → `docs/operations/hotfix.md`)
+- TDD: red → green → refactor; teste antes de implementar
+- Contrato do projeto > sugestão da IA
+- Entrega: atualizar `delivery-log.md` + `traceability-matrix.md`
+- Skills: **project-discovery** | **project-bootstrap** | **project-mvp-planning** | **card-tracking** | **feature-delivery**
+- Fase entregue: retro ou skip em `docs/meta/retrospectives/` (skill **phase-retrospective**; soft gate)
+- Métricas: `docs/meta/process-timeline.yaml` + painel HTML (skill **process-metrics**; transparente)

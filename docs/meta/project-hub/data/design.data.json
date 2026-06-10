@@ -1,0 +1,250 @@
+{
+  "built_at": "2026-06-10T12:38:13.355742+00:00",
+  "module_help": {
+    "title": "Design readiness",
+    "summary": "Antes de implementar React/Vue/etc., o MVP precisa de mocks HTML aprovados em design-references/. Este módulo mostra status de aprovação, checklist e links para abrir cada tela mockada.",
+    "sources": [
+      "project.config.yaml → design.status, design.screens",
+      "design-references/APPROVAL.md",
+      "design-references/screens/*.html"
+    ],
+    "gate": "Framework de UI só após design.status == approved (rule 000-onboarding-gate)."
+  },
+  "design_status": "approved",
+  "pattern_version": 1,
+  "approved_at": "2026-06-09T23:00:00Z",
+  "general_checklist": [
+    {
+      "label": "Todos os botões e links funcionam",
+      "checked": true
+    },
+    {
+      "label": "Filtros e navegação entre telas do MVP sem 404",
+      "checked": true
+    },
+    {
+      "label": "Dados simulados — hospitais do Rio de Janeiro",
+      "checked": true
+    },
+    {
+      "label": "Loading / erro / vazio testáveis em todas as telas",
+      "checked": true
+    },
+    {
+      "label": "Sem botões mortos ou TODO visual",
+      "checked": true
+    }
+  ],
+  "mock_table": [
+    {
+      "screen": "Início",
+      "file": "design-references/screens/index.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/index.html"
+    },
+    {
+      "screen": "Onboarding / localização",
+      "file": "design-references/screens/onboarding.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/onboarding.html"
+    },
+    {
+      "screen": "Mapa com filtros",
+      "file": "design-references/screens/mapa.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/mapa.html"
+    },
+    {
+      "screen": "Lista detalhada",
+      "file": "design-references/screens/lista.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/lista.html"
+    },
+    {
+      "screen": "Detalhe do hospital",
+      "file": "design-references/screens/hospital.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/hospital.html"
+    },
+    {
+      "screen": "Comparar hospitais",
+      "file": "design-references/screens/comparar.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/comparar.html"
+    },
+    {
+      "screen": "Rota e tempo estimado",
+      "file": "design-references/screens/rota.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/rota.html"
+    },
+    {
+      "screen": "Favoritos e alertas",
+      "file": "design-references/screens/alertas.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/alertas.html"
+    },
+    {
+      "screen": "Status integrações (admin)",
+      "file": "design-references/screens/admin-status.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/admin-status.html"
+    },
+    {
+      "screen": "Sobre / segurança",
+      "file": "design-references/screens/sobre.html",
+      "mocks_complete": true,
+      "preview_url": "/design-references/screens/sobre.html"
+    }
+  ],
+  "screens": [
+    {
+      "id": "index",
+      "title": "Início",
+      "html": "design-references/screens/index.html",
+      "preview_url": "/design-references/screens/index.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Início",
+        "file": "design-references/screens/index.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/index.html"
+      }
+    },
+    {
+      "id": "onboarding",
+      "title": "Onboarding / localização",
+      "html": "design-references/screens/onboarding.html",
+      "preview_url": "/design-references/screens/onboarding.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Onboarding / localização",
+        "file": "design-references/screens/onboarding.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/onboarding.html"
+      }
+    },
+    {
+      "id": "mapa",
+      "title": "Mapa com filtros",
+      "html": "design-references/screens/mapa.html",
+      "preview_url": "/design-references/screens/mapa.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Mapa com filtros",
+        "file": "design-references/screens/mapa.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/mapa.html"
+      }
+    },
+    {
+      "id": "lista",
+      "title": "Lista detalhada",
+      "html": "design-references/screens/lista.html",
+      "preview_url": "/design-references/screens/lista.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Lista detalhada",
+        "file": "design-references/screens/lista.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/lista.html"
+      }
+    },
+    {
+      "id": "hospital",
+      "title": "Detalhe do hospital",
+      "html": "design-references/screens/hospital.html",
+      "preview_url": "/design-references/screens/hospital.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Detalhe do hospital",
+        "file": "design-references/screens/hospital.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/hospital.html"
+      }
+    },
+    {
+      "id": "comparar",
+      "title": "Comparar hospitais",
+      "html": "design-references/screens/comparar.html",
+      "preview_url": "/design-references/screens/comparar.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Comparar hospitais",
+        "file": "design-references/screens/comparar.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/comparar.html"
+      }
+    },
+    {
+      "id": "rota",
+      "title": "Rota e tempo estimado",
+      "html": "design-references/screens/rota.html",
+      "preview_url": "/design-references/screens/rota.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Rota e tempo estimado",
+        "file": "design-references/screens/rota.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/rota.html"
+      }
+    },
+    {
+      "id": "alertas",
+      "title": "Favoritos e alertas",
+      "html": "design-references/screens/alertas.html",
+      "preview_url": "/design-references/screens/alertas.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Favoritos e alertas",
+        "file": "design-references/screens/alertas.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/alertas.html"
+      }
+    },
+    {
+      "id": "admin-status",
+      "title": "Status integrações (admin)",
+      "html": "design-references/screens/admin-status.html",
+      "preview_url": "/design-references/screens/admin-status.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Status integrações (admin)",
+        "file": "design-references/screens/admin-status.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/admin-status.html"
+      }
+    },
+    {
+      "id": "sobre",
+      "title": "Sobre / segurança",
+      "html": "design-references/screens/sobre.html",
+      "preview_url": "/design-references/screens/sobre.html",
+      "mocks_complete": true,
+      "linked_reqs": [],
+      "approval_row": {
+        "screen": "Sobre / segurança",
+        "file": "design-references/screens/sobre.html",
+        "mocks_complete": true,
+        "preview_url": "/design-references/screens/sobre.html"
+      }
+    }
+  ],
+  "gaps": [],
+  "report": {
+    "checklist_pct": 100,
+    "ready_for_ui_impl": true,
+    "screens_count": 10,
+    "screens_with_mock": 10,
+    "gap_count": 0
+  }
+}

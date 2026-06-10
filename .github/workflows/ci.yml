@@ -1,0 +1,75 @@
+# Gerado no bootstrap bloco E — FilaSaúde Brasil (2026-06-09)
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python deps (hub/scripts)
+        run: pip install pyyaml
+
+      - name: OpenAPI validate
+        run: |
+          chmod +x scripts/validate-openapi.sh
+          ./scripts/validate-openapi.sh
+
+      - name: Build Project Hub
+        run: |
+          chmod +x scripts/build-project-hub.sh scripts/build-hub-embeds.sh
+          make hub-build
+
+      - name: Hub journey tests
+        run: python3 scripts/test_build_project_journey.py -v && python3 scripts/test_resolve_next_step_retro.py -v
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: apps/api/go.sum
+
+      - name: Go unit tests (API)
+        working-directory: apps/api
+        run: go test ./internal/...
+
+      - name: Lint (placeholder — eslint web após npm ci)
+        run: echo "Lint: golangci-lint (api) + eslint (web) — expandir CARD-004"
+
+      - name: Security scan (placeholder)
+        run: echo "SAST: pip-audit, npm audit, gitleaks — habilitar na entrega"
+
+      - name: Export quality run
+        if: always()
+        run: |
+          chmod +x scripts/export-quality-run.sh
+          ./scripts/export-quality-run.sh \
+            --junit-unit-back "${JUNIT_UNIT_BACK:-}" \
+            --junit-unit-front "${JUNIT_UNIT_FRONT:-}" \
+            --junit-integration "${JUNIT_INTEGRATION:-}" \
+            --junit-contract "${JUNIT_CONTRACT:-}" \
+            --junit-e2e "${JUNIT_E2E:-}" \
+            --coverage-backend "${COVERAGE_BACKEND:-}" \
+            --coverage-frontend "${COVERAGE_FRONTEND:-}" \
+            --commit "${{ github.sha }}" \
+            --ci-job "github-actions" || true
+
+      - name: Build quality health dashboard
+        if: always()
+        run: ./scripts/build-quality-health.sh || true
+
+      - name: Build Project Hub (quality + overview)
+        if: always()
+        run: ./scripts/build-project-hub.sh
+
+      - name: Validate quality spec plans
+        run: ./scripts/validate-quality-spec-plans.sh || true

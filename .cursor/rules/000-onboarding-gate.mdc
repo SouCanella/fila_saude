@@ -1,0 +1,18 @@
+---
+description: Gate de descoberta, bootstrap, planejamento MVP e design — bloqueia código prematuro
+alwaysApply: true
+---
+
+# Onboarding gate
+
+1. Ler `project.config.yaml`.
+2. **Fase −1 Spawn:** se `template.is_upstream: true` e `template.sibling_spawn_required: true` e **não** `template.upstream_dev_mode`: **proibir** qualquer artefato de produto nesta pasta. Orientar `make create-project NAME="..." GIT_INIT=1`, abrir a **pasta irmã** no Cursor e reiniciar discovery **lá**. Doc: [spawn-project.md](../../docs/operations/spawn-project.md).
+   - **Proibido no upstream (produto):** `docs/discovery/` preenchido, `design-references/screens/` de produto, `docs/backlog/`, `docs/planning/`, `docs/tracking/cards/`, `docs/specs/REQ-*`, `src/`, `apps/`, código de app.
+   - **Permitido no upstream:** `docs/meta/`, `scripts/`, `examples/`, cards `CARD-Hub-*`, evolução do hub.
+3. Se `discovery.status != complete` e `discovery.skipped != true`: skill **project-discovery** (visão leve) **na pasta do produto** (`.modelo-product-workspace` ou `template.is_upstream: false`). Permitir `docs/discovery/`, rascunho `docs/01-product-vision.md`. **Proibir** bootstrap completo, `mvp_planning` completo, código de produto até `vision-review.md` confirmado.
+4. Se `discovery.skipped == true` ou `discovery.status == complete`: se `bootstrap.status != complete`, skill **project-bootstrap**. Permitir config, `design-references/` (mocks bloco H), templates. **Proibir** código de produto até bootstrap complete.
+5. Se `has_frontend: true` e `design.status != approved`: permitir HTML/mock; **proibir** framework de UI até `APPROVAL.md`.
+6. Se `bootstrap.status == complete` e `mvp_planning.status != complete`: skill **project-mvp-planning**. Permitir `docs/planning/`, `docs/backlog/`, `docs/tracking/cards/`, `requirements-review.md`, `traceability-matrix.md`. **Proibir** `feature-delivery`, card `in_progress` e código de produto até todo REQ em ≥1 card e humano confirmar review.
+7. Implementar: exige `mvp_planning.status == complete` + card `in_progress` (rule `015-card-tracking`) + specs approved.
+8. Se humano pedir código antes do guia: link `docs/00-getting-started.md` + `docs/00-project-lifecycle.md` + **## Próximo prompt sugerido** (rule `084-next-prompt`).
+9. Se OK: uma linha "Config OK — seguir governance e spec aprovada." + **## Próximo prompt sugerido**.

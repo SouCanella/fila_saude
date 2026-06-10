@@ -1,0 +1,37 @@
+# Schema de referência — docs/meta/quality-runs/latest.json | manual.yaml
+
+run_at: datetime
+commit: string | null
+ci_job: string | null
+overall: pass | fail | partial
+
+layers:
+  unit_back:
+    status: pass | fail | skip | unknown
+    passed: integer
+    failed: integer
+    skipped: integer
+    duration_seconds: number | null
+  unit_front: {}
+  integration: {}
+  # contract: deprecated — alias de integration (mesclado no build)
+  e2e: {}
+  security: {}  # opcional v1
+
+coverage:
+  backend:
+    lines: number | null
+    branches: number | null
+    threshold: number | null
+    meets_threshold: boolean | null
+  frontend: {}
+
+tests:
+  - id: string
+    layer: unit_back | unit_front | integration | contract | e2e | security
+    # contract é alias legado de integration — normalizado no export/build
+    req_ids: [REQ-XXX]
+    file: string | null
+    scenario: string | null
+    status: pass | fail | skip | missing | unknown
+    message: string | null

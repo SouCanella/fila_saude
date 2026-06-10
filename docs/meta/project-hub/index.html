@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Hub — Modelo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="premium.css" />
+  <link rel="stylesheet" href="premium-bridge.css" />
+  <script src="shared/theme-init.js"></script>
+</head>
+<body class="hub-premium-page" id="hubPage">
+  <header class="hub-app-header glass">
+    <div class="hub-header-module">
+      <h1 id="pageTitle">Overview</h1>
+      <p id="pageSubtitle">Visão executiva do método</p>
+      <p class="hub-built-at muted" id="builtAt"></p>
+    </div>
+    <div class="hub-header-project" aria-label="Resumo do projeto">
+      <span class="hub-project-badge">Modelo · Hub</span>
+      <span class="hub-project-name" id="topProjectName" title="">Project Hub</span>
+      <div class="hub-header-stats">
+        <span class="hub-stat-pill hub-stat-health" title="Health score">
+          <span class="hub-stat-ring" id="topHealthRing" data-label="—"></span>
+          <span class="hub-stat-label">Saúde</span>
+        </span>
+        <span class="hub-stat-pill hub-stat-pill--current" title="Fase em andamento no ciclo de vida (journey.data.json)">
+          <span class="hub-stat-label">Fase atual</span>
+          <strong id="topPhase">—</strong>
+        </span>
+        <span class="hub-stat-pill" title="Cards concluídos / total (delivery.data.json)">
+          <strong id="topCards">—</strong>
+          <span class="hub-stat-label">cards</span>
+        </span>
+        <a class="hub-stat-pill hub-stat-link" id="topGapsLink" href="#quality/gaps" title="Gaps de qualidade e segurança">
+          <strong id="topGaps">—</strong>
+          <span class="hub-stat-label">gaps</span>
+        </a>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" id="nextModuleBtn" href="#design">Próximo passo</a>
+      <button class="btn" id="themeToggle" type="button">Modo escuro</button>
+      <button class="btn" id="refreshBtn" type="button">Atualizar</button>
+      <a class="btn" id="guideNavBtn" href="#guide">Guia</a>
+    </div>
+  </header>
+  <div class="shell hub-body-shell">
+    <div class="app-grid">
+      <aside class="sidebar sidebar-nav-only glass" aria-label="Módulos do Project Hub">
+        <details class="hub-mobile-sidebar" id="hubMobileSidebar" open>
+          <summary>Módulos e indicadores</summary>
+          <div class="sidebar-nav-block">
+            <div class="nav-section-label">Módulos</div>
+            <nav class="nav-list" id="navList"></nav>
+          </div>
+          <div class="sidebar-kpi-block" id="sidebarKpis" aria-label="Indicadores"></div>
+        </details>
+      </aside>
+      <main class="main">
+        <div id="contentRoot"><p class="muted">Carregando…</p></div>
+        <footer class="footer" id="hubFooter">Project Hub — monitoria do projeto · <code>make hub-build</code></footer>
+      </main>
+    </div>
+  </div>
+  <div class="copy-toast" id="copyToast">Prompt copiado.</div>
+  <script src="hub-data.js"></script>
+  <script src="hub-markdown.js"></script>
+  <script src="legacy-templates.js"></script>
+  <script src="hub-premium.js"></script>
+  <script>ProjectHubPremium.init();</script>
+</body>
+</html>

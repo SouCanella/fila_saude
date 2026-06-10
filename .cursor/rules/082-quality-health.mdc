@@ -1,0 +1,17 @@
+---
+description: Quality health dashboard — TDD coverage per REQ layer
+globs:
+  - docs/specs/**
+  - docs/backlog/**
+  - docs/traceability-matrix.md
+  - docs/meta/quality-**
+alwaysApply: false
+---
+
+# Quality health gate (soft)
+
+- Painel: **Project Hub** `#quality` — `make hub-build` (módulo qualidade).
+- Fonte: specs (camadas TDD) + `quality-runs/latest.json` ou `manual.yaml`.
+- Ao fechar CARD: camadas obrigatórias da spec devem estar `pass` ou justificativa em `docs/tech-debt.md`.
+- `req_kind: non_functional` no backlog/spec — mesmos estados por camada.
+- Skill: **quality-health** · `make quality-scaffold` / `make quality-validate-specs` · Não confundir com **process-metrics** (tempo).

@@ -1,0 +1,221 @@
+# project.config.yaml — FilaSaúde Brasil
+
+template:
+  is_upstream: false
+  sibling_spawn_required: false
+  upstream_dev_mode: false
+  spawned_from: Modelo
+  spawned_at: "2026-06-10T00:53:19Z"
+  upstream_path: "/home/romulocanella/Projetos/Modelo"
+
+discovery:
+  status: complete
+  completed_at: "2026-06-09T23:30:00Z"
+  review_confirmed_at: "2026-06-09T23:30:00Z"
+  skipped: false
+
+mvp_planning:
+  status: complete
+  completed_at: "2026-06-10T03:30:00Z"
+  review_confirmed_at: "2026-06-10T03:30:00Z"
+
+bootstrap:
+  status: complete
+  completed_at: "2026-06-10T01:30:00Z"
+  sections:
+    A_identidade: complete
+    B_stack: complete
+    C_infra: complete
+    D_testes: complete
+    E_ci: complete
+    F_contratos: complete
+    G_observabilidade: complete
+    H_design: complete
+    I_seguranca: complete
+    J_rastreio: complete
+    K_i18n: complete
+    L_e2e: complete
+    M_ambientes: complete
+    N_privacidade: complete
+    O_entrega: complete
+
+project:
+  name: "FilaSaúde Brasil"
+  domain: filasaude.br  # provisório — registro pendente
+  doc_language: pt-BR
+  has_frontend: true
+  has_backend: true
+  has_database: true
+
+stack:
+  backend: go
+  frontend: nextjs
+  monorepo: true
+
+design:
+  status: approved
+  pattern_version: 1
+  approved_at: "2026-06-09T23:00:00Z"
+  approved_by: "Romulo Canella"
+  reference_root: design-references/screens
+  screens:
+    - id: index
+      title: Início
+      html: design-references/screens/index.html
+      mocks_complete: true
+    - id: onboarding
+      title: Onboarding / localização
+      html: design-references/screens/onboarding.html
+      mocks_complete: true
+    - id: mapa
+      title: Mapa com filtros
+      html: design-references/screens/mapa.html
+      mocks_complete: true
+    - id: lista
+      title: Lista detalhada
+      html: design-references/screens/lista.html
+      mocks_complete: true
+    - id: hospital
+      title: Detalhe do hospital
+      html: design-references/screens/hospital.html
+      mocks_complete: true
+    - id: comparar
+      title: Comparar hospitais
+      html: design-references/screens/comparar.html
+      mocks_complete: true
+    - id: rota
+      title: Rota e tempo estimado
+      html: design-references/screens/rota.html
+      mocks_complete: true
+    - id: alertas
+      title: Favoritos e alertas
+      html: design-references/screens/alertas.html
+      mocks_complete: true
+    - id: admin-status
+      title: Status integrações (admin)
+      html: design-references/screens/admin-status.html
+      mocks_complete: true
+    - id: sobre
+      title: Sobre / segurança
+      html: design-references/screens/sobre.html
+      mocks_complete: true
+
+coverage:
+  backend:
+    threshold: 90
+    lines: 90
+    branches: 90
+    functions: 90
+    statements: 90
+  frontend:
+    threshold: 90
+    lines: 90
+    branches: 90
+    functions: 90
+    statements: 90
+    exclude:
+      - "**/*.d.ts"
+      - "**/index.ts"
+      - "**/*.config.*"
+      - "**/generated/**"
+
+i18n:
+  enabled: false
+  default_locale: pt-BR
+  locales: []
+
+e2e:
+  enabled: true
+  tool: playwright
+  critical_flows:
+    - onboarding_to_map
+    - map_to_hospital_detail
+    - hospital_to_route
+    - compare_hospitals
+
+ci:
+  platform: github
+
+openapi:
+  path: docs/api/openapi.yaml
+  contract_first: true
+
+process_metrics:
+  enabled: true
+  project_started_at: "2026-06-10T00:53:00Z"  # spawn — noite 2026-06-09 BRT
+  idle_threshold_hours: 4
+  ai_minutes_per_round_default: 3
+  active_context:
+    card_id: CARD-001
+    phase: FASE-1
+    activity: implementation
+
+quality_health:
+  enabled: true
+  last_run_json: docs/meta/quality-runs/latest.json
+  last_run_manual: docs/meta/quality-runs/manual.yaml
+  test_roots:
+    unit_back: apps/api/internal
+    unit_front: apps/web/tests/unit
+    integration: apps/api/tests/integration
+    contract: apps/api/tests/contract
+    e2e: tests/e2e
+  coverage_artifacts:
+    backend: apps/api/coverage.out
+    frontend: apps/web/coverage/lcov.info
+
+project_hub:
+  enabled: true
+  port: 8090
+  modules:
+    process: true
+    quality: true
+    security: true
+    accessibility: true
+    design: true
+
+git:
+  commit:
+    convention: conventional
+    scope_required: false
+    card_ref: footer
+    committer: human_or_agent
+    custom_template: null
+  release:
+    strategy: semver_mvp
+    initial_version: "0.1.0"
+    tag_prefix: v
+    changelog: CHANGELOG.md
+    version_file: null
+    ci_automation: manual
+
+agent_automation:
+  run_tests_without_approval: false
+  test_scope:
+    - unit_integration
+  environments:
+    - local_dev_only
+
+tracking:
+  req_prefix: REQ
+  card_prefix: CARD
+  phase_prefix: FASE
+  branch_feature: feature/
+  branch_hotfix: hotfix/
+  cards:
+    required: true
+    provider: markdown
+    mirror_in_repo: true
+    external:
+      base_url: https://github.com/SouCanella/fila_saude
+      project_key: null
+      board_id: null
+      repo: SouCanella/fila_saude
+    sync:
+      req_ids_in_card: true
+      card_id_in_spec: true
+    states:
+      open: open
+      in_progress: in_progress
+      done: done
+      cancelled: cancelled

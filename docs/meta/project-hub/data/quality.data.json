@@ -1,0 +1,1460 @@
+{
+  "built_at": "2026-06-10T12:38:13.199569+00:00",
+  "config": {
+    "e2e_enabled": true,
+    "quality_health_enabled": true
+  },
+  "last_run": {
+    "source": "none",
+    "run_at": null,
+    "commit": null,
+    "ci_job": null,
+    "overall": "unknown",
+    "layers_summary": {}
+  },
+  "coverage": {
+    "backend": {
+      "lines": null,
+      "branches": null,
+      "threshold": 90,
+      "meets_threshold": null,
+      "artifact": "apps/api/coverage.out"
+    },
+    "frontend": {
+      "lines": null,
+      "branches": null,
+      "threshold": 90,
+      "meets_threshold": null,
+      "artifact": "apps/web/coverage/lcov.info"
+    }
+  },
+  "requirements": [
+    {
+      "req_id": "REQ-001",
+      "phase": "FASE-1",
+      "card_id": "CARD-001",
+      "title": "Monorepo e Docker",
+      "priority": "P0",
+      "req_kind": "non_functional",
+      "critical_flow": false,
+      "spec_path": "docs/specs/REQ-001-monorepo-docker.md",
+      "spec_status": "approved",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": true,
+          "built": false,
+          "status": "pending",
+          "cases": [
+            {
+              "scenario": "Postgres PostGIS — Conexão + extensão postgis habilitada",
+              "business_flow": "Postgres PostGIS",
+              "persona": null,
+              "steps_summary": "Conexão + extensão postgis habilitada",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/infra/postgres_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Redis — PING retorna PONG",
+              "business_flow": "Redis",
+              "persona": null,
+              "steps_summary": "PING retorna PONG",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/infra/redis_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "OSRM — GET /health ou route stub responde",
+              "business_flow": "OSRM",
+              "persona": null,
+              "steps_summary": "GET /health ou route stub responde",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/infra/osrm_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Compose smoke — Script ou teste documentado `docker compose ps` healthy",
+              "business_flow": "Compose smoke",
+              "persona": null,
+              "steps_summary": "Script ou teste documentado `docker compose ps` healthy",
+              "expected_result": null,
+              "file": "`scripts/smoke-compose.sh` ou CI job",
+              "status": "pending"
+            }
+          ]
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "Integração API (incl. contrato OpenAPI)"
+      ]
+    },
+    {
+      "req_id": "REQ-002",
+      "phase": "FASE-1",
+      "card_id": "CARD-001",
+      "title": "Schema e migrations",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": false,
+      "spec_path": "docs/specs/REQ-002-schema-migrations.md",
+      "spec_status": "approved",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": true,
+          "built": false,
+          "status": "pending",
+          "cases": [
+            {
+              "scenario": "Validar risk_level Manchester permitidos",
+              "business_flow": "Validar risk_level Manchester permitidos",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/domain/queue_snapshot_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Hospital active default true",
+              "business_flow": "Hospital active default true",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/domain/hospital_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Repository insert/find hospital (sqlmock ou interface)",
+              "business_flow": "Repository insert/find hospital (sqlmock ou interface)",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/repository/hospital_test.go`",
+              "status": "pending"
+            }
+          ]
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": true,
+          "built": false,
+          "status": "pending",
+          "cases": [
+            {
+              "scenario": "Migrations up/down — Schema completo após up; tabelas removidas após down controlado",
+              "business_flow": "Migrations up/down",
+              "persona": null,
+              "steps_summary": "Schema completo após up; tabelas removidas após down controlado",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/migrations/migrations_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "PostGIS ST_DWithin — Hospital dentro de raio 25 km",
+              "business_flow": "PostGIS ST_DWithin",
+              "persona": null,
+              "steps_summary": "Hospital dentro de raio 25 km",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/repository/hospital_geo_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "FK queue_snapshot — Insert órfão falha",
+              "business_flow": "FK queue_snapshot",
+              "persona": null,
+              "steps_summary": "Insert órfão falha",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/repository/snapshot_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Persistência round-trip — Insert hospital + snapshot + read",
+              "business_flow": "Persistência round-trip",
+              "persona": null,
+              "steps_summary": "Insert hospital + snapshot + read",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/repository/hospital_repo_test.go`",
+              "status": "pending"
+            }
+          ]
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "Unitário back",
+        "Integração API (incl. contrato OpenAPI)"
+      ]
+    },
+    {
+      "req_id": "REQ-003",
+      "phase": "FASE-1",
+      "card_id": "CARD-002",
+      "title": "API REST v1 hospitais",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": false,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": []
+    },
+    {
+      "req_id": "REQ-004",
+      "phase": "FASE-1",
+      "card_id": "CARD-003",
+      "title": "Adapter mock RJ",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": false,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": []
+    },
+    {
+      "req_id": "REQ-005",
+      "phase": "FASE-2",
+      "card_id": "CARD-004",
+      "title": "Shell Next.js + design system",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": false,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": []
+    },
+    {
+      "req_id": "REQ-006",
+      "phase": "FASE-2",
+      "card_id": "CARD-005",
+      "title": "Onboarding e localização",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": true,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": true,
+          "built": false,
+          "status": "missing",
+          "cases": [
+            {
+              "scenario": "(plano não preenchido)",
+              "file": null,
+              "status": "missing"
+            }
+          ]
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-007",
+      "phase": "FASE-2",
+      "card_id": "CARD-005",
+      "title": "Mapa, lista e início",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": true,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": true,
+          "built": false,
+          "status": "missing",
+          "cases": [
+            {
+              "scenario": "(plano não preenchido)",
+              "file": null,
+              "status": "missing"
+            }
+          ]
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-008",
+      "phase": "FASE-2",
+      "card_id": "CARD-006",
+      "title": "Detalhe hospital",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": true,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": true,
+          "built": false,
+          "status": "missing",
+          "cases": [
+            {
+              "scenario": "(plano não preenchido)",
+              "file": null,
+              "status": "missing"
+            }
+          ]
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-009",
+      "phase": "FASE-2",
+      "card_id": "CARD-006",
+      "title": "Comparar hospitais",
+      "priority": "P1",
+      "req_kind": "functional",
+      "critical_flow": true,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": true,
+          "built": false,
+          "status": "missing",
+          "cases": [
+            {
+              "scenario": "(plano não preenchido)",
+              "file": null,
+              "status": "missing"
+            }
+          ]
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-010",
+      "phase": "FASE-2",
+      "card_id": "CARD-007",
+      "title": "Rota OSRM + MapLibre",
+      "priority": "P0",
+      "req_kind": "functional",
+      "critical_flow": true,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": true,
+          "built": false,
+          "status": "missing",
+          "cases": [
+            {
+              "scenario": "(plano não preenchido)",
+              "file": null,
+              "status": "missing"
+            }
+          ]
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-011",
+      "phase": "FASE-2",
+      "card_id": "CARD-008",
+      "title": "Favoritos e alertas",
+      "priority": "P2",
+      "req_kind": "functional",
+      "critical_flow": false,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": []
+    },
+    {
+      "req_id": "REQ-012",
+      "phase": "FASE-2",
+      "card_id": "CARD-008",
+      "title": "Sobre, LGPD e avisos",
+      "priority": "P0",
+      "req_kind": "non_functional",
+      "critical_flow": false,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": []
+    },
+    {
+      "req_id": "REQ-013",
+      "phase": "FASE-3",
+      "card_id": "CARD-009",
+      "title": "Admin integrações",
+      "priority": "P1",
+      "req_kind": "functional",
+      "critical_flow": false,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": []
+    },
+    {
+      "req_id": "REQ-014",
+      "phase": "FASE-1",
+      "card_id": "CARD-001",
+      "title": "Observabilidade API",
+      "priority": "P1",
+      "req_kind": "non_functional",
+      "critical_flow": false,
+      "spec_path": "docs/specs/REQ-014-observabilidade-api.md",
+      "spec_status": "approved",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": true,
+          "built": false,
+          "status": "pending",
+          "cases": [
+            {
+              "scenario": "Gera request_id quando header ausente",
+              "business_flow": "Gera request_id quando header ausente",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/middleware/logging_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Reutiliza X-Request-ID do cliente",
+              "business_flow": "Reutiliza X-Request-ID do cliente",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/middleware/logging_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Log contém campos obrigatórios",
+              "business_flow": "Log contém campos obrigatórios",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/middleware/logging_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "Handler health retorna status ok",
+              "business_flow": "Handler health retorna status ok",
+              "persona": null,
+              "steps_summary": null,
+              "expected_result": null,
+              "file": "`apps/api/internal/handler/health_test.go`",
+              "status": "pending"
+            }
+          ]
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": true,
+          "built": false,
+          "status": "pending",
+          "cases": [
+            {
+              "scenario": "GET /health — 200 + body OpenAPI + X-Request-ID",
+              "business_flow": "GET /health",
+              "persona": null,
+              "steps_summary": "200 + body OpenAPI + X-Request-ID",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/handler/health_test.go`",
+              "status": "pending"
+            },
+            {
+              "scenario": "GET /unknown — 404 + request_id no response",
+              "business_flow": "GET /unknown",
+              "persona": null,
+              "steps_summary": "404 + request_id no response",
+              "expected_result": null,
+              "file": "`apps/api/tests/integration/handler/not_found_test.go`",
+              "status": "pending"
+            }
+          ]
+        },
+        "e2e": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "Unitário back",
+        "Integração API (incl. contrato OpenAPI)"
+      ]
+    },
+    {
+      "req_id": "REQ-015",
+      "phase": "FASE-3",
+      "card_id": "CARD-010",
+      "title": "E2E fluxos críticos",
+      "priority": "P1",
+      "req_kind": "non_functional",
+      "critical_flow": true,
+      "spec_path": null,
+      "spec_status": "missing",
+      "matrix_status": "—",
+      "layers": {
+        "unit_back": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "unit_front": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "integration": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        },
+        "e2e": {
+          "required": true,
+          "built": false,
+          "status": "missing",
+          "cases": [
+            {
+              "scenario": "(plano não preenchido)",
+              "file": null,
+              "status": "missing"
+            }
+          ]
+        },
+        "security": {
+          "required": false,
+          "built": false,
+          "status": "not_required",
+          "cases": []
+        }
+      },
+      "all_layers_green": false,
+      "gap_layers": [
+        "E2E"
+      ]
+    }
+  ],
+  "by_layer": {
+    "unit_back": [
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "Validar risk_level Manchester permitidos",
+        "business_flow": "Validar risk_level Manchester permitidos",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/domain/queue_snapshot_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "Hospital active default true",
+        "business_flow": "Hospital active default true",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/domain/hospital_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "Repository insert/find hospital (sqlmock ou interface)",
+        "business_flow": "Repository insert/find hospital (sqlmock ou interface)",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/repository/hospital_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-014",
+        "req_kind": "non_functional",
+        "title": "Observabilidade API",
+        "scenario": "Gera request_id quando header ausente",
+        "business_flow": "Gera request_id quando header ausente",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/middleware/logging_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-014",
+        "req_kind": "non_functional",
+        "title": "Observabilidade API",
+        "scenario": "Reutiliza X-Request-ID do cliente",
+        "business_flow": "Reutiliza X-Request-ID do cliente",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/middleware/logging_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-014",
+        "req_kind": "non_functional",
+        "title": "Observabilidade API",
+        "scenario": "Log contém campos obrigatórios",
+        "business_flow": "Log contém campos obrigatórios",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/middleware/logging_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-014",
+        "req_kind": "non_functional",
+        "title": "Observabilidade API",
+        "scenario": "Handler health retorna status ok",
+        "business_flow": "Handler health retorna status ok",
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": "`apps/api/internal/handler/health_test.go`",
+        "status": "pending"
+      }
+    ],
+    "unit_front": [],
+    "integration": [
+      {
+        "req_id": "REQ-001",
+        "req_kind": "non_functional",
+        "title": "Monorepo e Docker",
+        "scenario": "Postgres PostGIS — Conexão + extensão postgis habilitada",
+        "business_flow": "Postgres PostGIS",
+        "persona": null,
+        "steps_summary": "Conexão + extensão postgis habilitada",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/infra/postgres_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-001",
+        "req_kind": "non_functional",
+        "title": "Monorepo e Docker",
+        "scenario": "Redis — PING retorna PONG",
+        "business_flow": "Redis",
+        "persona": null,
+        "steps_summary": "PING retorna PONG",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/infra/redis_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-001",
+        "req_kind": "non_functional",
+        "title": "Monorepo e Docker",
+        "scenario": "OSRM — GET /health ou route stub responde",
+        "business_flow": "OSRM",
+        "persona": null,
+        "steps_summary": "GET /health ou route stub responde",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/infra/osrm_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-001",
+        "req_kind": "non_functional",
+        "title": "Monorepo e Docker",
+        "scenario": "Compose smoke — Script ou teste documentado `docker compose ps` healthy",
+        "business_flow": "Compose smoke",
+        "persona": null,
+        "steps_summary": "Script ou teste documentado `docker compose ps` healthy",
+        "expected_result": null,
+        "file": "`scripts/smoke-compose.sh` ou CI job",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "Migrations up/down — Schema completo após up; tabelas removidas após down controlado",
+        "business_flow": "Migrations up/down",
+        "persona": null,
+        "steps_summary": "Schema completo após up; tabelas removidas após down controlado",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/migrations/migrations_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "PostGIS ST_DWithin — Hospital dentro de raio 25 km",
+        "business_flow": "PostGIS ST_DWithin",
+        "persona": null,
+        "steps_summary": "Hospital dentro de raio 25 km",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/repository/hospital_geo_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "FK queue_snapshot — Insert órfão falha",
+        "business_flow": "FK queue_snapshot",
+        "persona": null,
+        "steps_summary": "Insert órfão falha",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/repository/snapshot_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-002",
+        "req_kind": "functional",
+        "title": "Schema e migrations",
+        "scenario": "Persistência round-trip — Insert hospital + snapshot + read",
+        "business_flow": "Persistência round-trip",
+        "persona": null,
+        "steps_summary": "Insert hospital + snapshot + read",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/repository/hospital_repo_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-014",
+        "req_kind": "non_functional",
+        "title": "Observabilidade API",
+        "scenario": "GET /health — 200 + body OpenAPI + X-Request-ID",
+        "business_flow": "GET /health",
+        "persona": null,
+        "steps_summary": "200 + body OpenAPI + X-Request-ID",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/handler/health_test.go`",
+        "status": "pending"
+      },
+      {
+        "req_id": "REQ-014",
+        "req_kind": "non_functional",
+        "title": "Observabilidade API",
+        "scenario": "GET /unknown — 404 + request_id no response",
+        "business_flow": "GET /unknown",
+        "persona": null,
+        "steps_summary": "404 + request_id no response",
+        "expected_result": null,
+        "file": "`apps/api/tests/integration/handler/not_found_test.go`",
+        "status": "pending"
+      }
+    ],
+    "e2e": [
+      {
+        "req_id": "REQ-006",
+        "req_kind": "functional",
+        "title": "Onboarding e localização",
+        "scenario": "(plano não preenchido)",
+        "business_flow": null,
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": null,
+        "status": "missing"
+      },
+      {
+        "req_id": "REQ-007",
+        "req_kind": "functional",
+        "title": "Mapa, lista e início",
+        "scenario": "(plano não preenchido)",
+        "business_flow": null,
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": null,
+        "status": "missing"
+      },
+      {
+        "req_id": "REQ-008",
+        "req_kind": "functional",
+        "title": "Detalhe hospital",
+        "scenario": "(plano não preenchido)",
+        "business_flow": null,
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": null,
+        "status": "missing"
+      },
+      {
+        "req_id": "REQ-009",
+        "req_kind": "functional",
+        "title": "Comparar hospitais",
+        "scenario": "(plano não preenchido)",
+        "business_flow": null,
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": null,
+        "status": "missing"
+      },
+      {
+        "req_id": "REQ-010",
+        "req_kind": "functional",
+        "title": "Rota OSRM + MapLibre",
+        "scenario": "(plano não preenchido)",
+        "business_flow": null,
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": null,
+        "status": "missing"
+      },
+      {
+        "req_id": "REQ-015",
+        "req_kind": "non_functional",
+        "title": "E2E fluxos críticos",
+        "scenario": "(plano não preenchido)",
+        "business_flow": null,
+        "persona": null,
+        "steps_summary": null,
+        "expected_result": null,
+        "file": null,
+        "status": "missing"
+      }
+    ],
+    "security": []
+  },
+  "gaps": [
+    {
+      "req_id": "REQ-001",
+      "req_kind": "non_functional",
+      "priority": "P0",
+      "title": "Monorepo e Docker",
+      "spec_missing": false,
+      "gap_layers": [
+        "Integração API (incl. contrato OpenAPI)"
+      ]
+    },
+    {
+      "req_id": "REQ-002",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Schema e migrations",
+      "spec_missing": false,
+      "gap_layers": [
+        "Unitário back",
+        "Integração API (incl. contrato OpenAPI)"
+      ]
+    },
+    {
+      "req_id": "REQ-003",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "API REST v1 hospitais",
+      "spec_missing": true,
+      "gap_layers": [
+        "spec ausente"
+      ]
+    },
+    {
+      "req_id": "REQ-004",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Adapter mock RJ",
+      "spec_missing": true,
+      "gap_layers": [
+        "spec ausente"
+      ]
+    },
+    {
+      "req_id": "REQ-005",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Shell Next.js + design system",
+      "spec_missing": true,
+      "gap_layers": [
+        "spec ausente"
+      ]
+    },
+    {
+      "req_id": "REQ-006",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Onboarding e localização",
+      "spec_missing": true,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-007",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Mapa, lista e início",
+      "spec_missing": true,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-008",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Detalhe hospital",
+      "spec_missing": true,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-010",
+      "req_kind": "functional",
+      "priority": "P0",
+      "title": "Rota OSRM + MapLibre",
+      "spec_missing": true,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-012",
+      "req_kind": "non_functional",
+      "priority": "P0",
+      "title": "Sobre, LGPD e avisos",
+      "spec_missing": true,
+      "gap_layers": [
+        "spec ausente"
+      ]
+    },
+    {
+      "req_id": "REQ-009",
+      "req_kind": "functional",
+      "priority": "P1",
+      "title": "Comparar hospitais",
+      "spec_missing": true,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-013",
+      "req_kind": "functional",
+      "priority": "P1",
+      "title": "Admin integrações",
+      "spec_missing": true,
+      "gap_layers": [
+        "spec ausente"
+      ]
+    },
+    {
+      "req_id": "REQ-014",
+      "req_kind": "non_functional",
+      "priority": "P1",
+      "title": "Observabilidade API",
+      "spec_missing": false,
+      "gap_layers": [
+        "Unitário back",
+        "Integração API (incl. contrato OpenAPI)"
+      ]
+    },
+    {
+      "req_id": "REQ-015",
+      "req_kind": "non_functional",
+      "priority": "P1",
+      "title": "E2E fluxos críticos",
+      "spec_missing": true,
+      "gap_layers": [
+        "E2E"
+      ]
+    },
+    {
+      "req_id": "REQ-011",
+      "req_kind": "functional",
+      "priority": "P2",
+      "title": "Favoritos e alertas",
+      "spec_missing": true,
+      "gap_layers": [
+        "spec ausente"
+      ]
+    }
+  ],
+  "analytics": {
+    "health_score": 27,
+    "health_label": "Crítico",
+    "tests_total": 23,
+    "tests_pass": 0,
+    "tests_fail": 0,
+    "tests_pending": 23,
+    "tests_unknown": 0,
+    "by_status": {
+      "pass": 0,
+      "skip": 0,
+      "unknown": 0,
+      "pending": 17,
+      "missing": 6,
+      "fail": 0
+    },
+    "by_layer": {
+      "unit_back": {
+        "label": "Unitário back",
+        "total": 7,
+        "pass": 0,
+        "fail": 0,
+        "pending": 7,
+        "pct_pass": 0.0
+      },
+      "integration": {
+        "label": "Integração API (incl. contrato OpenAPI)",
+        "total": 10,
+        "pass": 0,
+        "fail": 0,
+        "pending": 10,
+        "pct_pass": 0.0
+      },
+      "e2e": {
+        "label": "E2E",
+        "total": 6,
+        "pass": 0,
+        "fail": 0,
+        "pending": 6,
+        "pct_pass": 0.0
+      }
+    },
+    "avg_coverage_pct": null,
+    "gaps_count": 15
+  },
+  "layer_labels": {
+    "unit_back": "Unitário back",
+    "unit_front": "Unitário front",
+    "integration": "Integração API (incl. contrato OpenAPI)",
+    "e2e": "E2E",
+    "security": "Segurança"
+  },
+  "status_legend": {
+    "not_required": "Não exigido na spec",
+    "missing": "Obrigatório — teste não construído",
+    "pending": "Plano TDD pendente",
+    "unknown": "Teste existe — sem última execução",
+    "pass": "Última execução passou",
+    "fail": "Última execução falhou",
+    "skip": "Ignorado na última execução"
+  },
+  "business_status": {
+    "pass": "Aprovado",
+    "fail": "Falhou",
+    "missing": "Teste não criado",
+    "pending": "Planejado",
+    "unknown": "Não executado",
+    "skip": "Ignorado",
+    "not_required": "Não aplicável"
+  },
+  "report": {
+    "title": "Saúde da qualidade",
+    "subtitle": "TDD, cobertura e rastreio REQ → testes",
+    "last_run_at": null,
+    "last_run_source": "none",
+    "last_run_overall": "unknown",
+    "req_total": 15,
+    "req_fully_green_pct": 0.0,
+    "req_fully_green": 0,
+    "gap_count": 15,
+    "gap_functional": 11,
+    "gap_non_functional": 4
+  }
+}

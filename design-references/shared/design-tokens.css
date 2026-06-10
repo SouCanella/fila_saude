@@ -1,0 +1,24 @@
+/* FilaSaúde Brasil — tokens (bloco H bootstrap) */
+:root{
+  --bg:#eef7f5;
+  --bg-2:#f7fbfa;
+  --surface:#ffffff;
+  --surface-soft:#f3f6fb;
+  --ink:#243238;
+  --muted:#64748b;
+  --line:#d9e5e2;
+  --brand:#74b6aa;
+  --brand-strong:#2f8f82;
+  --brand-dark:#1f5e58;
+  --blue:#3579b8;
+  --pink:#d985aa;
+  --purple:#9b6fb1;
+  --green:#15a34a;
+  --yellow:#eab308;
+  --orange:#f97316;
+  --red:#ef4444;
+  --shadow:0 18px 45px rgba(22,55,65,.14);
+  --radius:22px;
+  --radius-sm:14px;
+  --max:1280px;
+}

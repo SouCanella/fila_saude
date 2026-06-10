@@ -1,0 +1,11 @@
+{
+  "built_at": "2026-06-10T12:38:13.486614+00:00",
+  "source": "docs/tech-debt.md",
+  "items": [],
+  "report": {
+    "total": 0,
+    "critical_open_count": 0,
+    "critical_items": [],
+    "has_critical_blocker": false
+  }
+}

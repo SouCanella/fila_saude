@@ -1,0 +1,11 @@
+{
+  "built_at": "2026-06-10T12:38:13.728169+00:00",
+  "changelog_path": "CHANGELOG.md",
+  "report": {
+    "last_version": "0.1.0",
+    "last_tag": null,
+    "last_tag_date": null,
+    "changelog_preview": "## [Unreleased]\n\n### Added\n\n- Discovery completa — visão FilaSaúde Brasil (piloto RJ)\n- Mockups HTML aprovados em `design-references/screens/` (10 telas + a11y)\n- Bootstrap completo — stack Next.js + FastAPI, Docker Compose, OpenAPI v0.1.0\n- Governança SDD/TDD, Project Hub, cards MD",
+    "strategy": "semver_mvp"
+  }
+}

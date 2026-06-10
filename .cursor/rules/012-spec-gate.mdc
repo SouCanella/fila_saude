@@ -1,0 +1,11 @@
+---
+description: Spec deve estar approved antes de implementar
+globs: docs/specs/**
+alwaysApply: false
+---
+
+# Spec gate
+
+- Implementar só se spec tem `status: approved` (frontmatter ou confirmação explícita do humano)
+- Exceção: hotfix documentado em `docs/operations/hotfix.md` + ADR se violar gate
+- Spec em draft: pode editar spec e plano de testes, não código de produto

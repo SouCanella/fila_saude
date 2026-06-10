@@ -1,0 +1,31 @@
+{
+  "built_at": "2026-06-10T12:38:13.395819+00:00",
+  "source": "docs/delivery-log.md",
+  "entries": [
+    {
+      "card_id": "CARD-001",
+      "title": "CARD-001",
+      "status": "Em andamento",
+      "req_ids": [
+        "REQ-001",
+        "REQ-001-MONOREPO-DOCKER",
+        "REQ-002",
+        "REQ-002-SCHEMA-MIGRATIONS",
+        "REQ-014",
+        "REQ-014-OBSERVABILIDADE-API"
+      ],
+      "tdd_red_green": "sim (unit + handler integration)",
+      "started_at": "2026-06-10 04:00",
+      "ended_at": "—",
+      "branch": "feature/CARD-001-fundacao-tecnica",
+      "pr": "—",
+      "phase": "FASE-1",
+      "card_path": "docs/tracking/cards/CARD-001-fundacao-tecnica.md"
+    }
+  ],
+  "report": {
+    "total": 1,
+    "completed": 0,
+    "in_progress": 1
+  }
+}

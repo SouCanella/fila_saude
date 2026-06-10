@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guia — métricas de processo</title>
+  <link rel="stylesheet" href="process-metrics.css" />
+  <style>
+    .guide { max-width: 720px; margin: 2rem auto; padding: 0 1.5rem 3rem; line-height: 1.55; }
+    .guide h1 { font-size: 1.5rem; }
+    .guide h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    .guide code { font-size: 0.9em; }
+    .guide a { color: #2563eb; }
+  </style>
+</head>
+<body class="pm-page">
+  <main class="guide">
+    <p><a href="index.html">← Voltar ao painel</a></p>
+    <h1>Métricas de tempo do processo</h1>
+    <p>Ferramenta do <strong>método Modelo</strong> — não mede o produto em produção.</p>
+
+    <h2>Fonte da verdade</h2>
+    <ul>
+      <li><code>docs/meta/process-timeline.yaml</code> — marcos, sessões, rodadas</li>
+      <li><code>project.config.yaml</code> → <code>process_metrics</code></li>
+      <li>Build: <code>./scripts/build-process-metrics.sh</code></li>
+    </ul>
+
+    <h2>Previsões (est.)</h2>
+    <p>Só após <code>mvp_planning.status: complete</code> e cards pendentes no backlog. Roxo/tracejado = projeção estatística, <strong>não</strong> SLA nem data de negócio.</p>
+
+    <h2>Marco de arquitetura</h2>
+    <p>Após mocks aprovados, registre <code>activity: architecture_baseline</code> quando <code>docs/02-architecture.md</code> estiver acordado.</p>
+
+    <h2>Ritual por turno</h2>
+    <ol>
+      <li>Skill <strong>process-metrics</strong> — append rodada no YAML</li>
+      <li>Build + abrir painel (<code>./scripts/serve-process-metrics.sh</code>)</li>
+      <li>Cards: <code>opened_at</code> / <code>done_at</code> no CARD MD</li>
+    </ol>
+
+    <h2>needs_review</h2>
+    <p>Contexto ambíguo — corrija <code>phase</code>, <code>activity</code>, <code>card_id</code> no YAML e marque <code>needs_review: false</code>.</p>
+
+    <h2>Demo com dados</h2>
+    <p><code>examples/process-metrics-demo/</code> — <code>./scripts/build-process-metrics-demo.sh</code> e <code>serve-process-metrics-demo.sh</code> (porta 8091).</p>
+
+    <h2>Benchmarks e relatório</h2>
+    <ul>
+      <li><code>./scripts/export-process-benchmark.sh</code></li>
+      <li><code>./scripts/aggregate-process-benchmarks.sh</code></li>
+      <li><code>./scripts/export-process-report.sh</code> — HTML estático</li>
+    </ul>
+
+    <p class="pm-empty">Markdown completo: <a href="/process-metrics.md">process-metrics.md</a></p>
+  </main>
+</body>
+</html>

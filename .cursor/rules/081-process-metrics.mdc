@@ -1,0 +1,36 @@
+---
+description: Métricas de tempo transparentes — rodadas, marcos, sessões em process-timeline.yaml
+alwaysApply: true
+---
+
+# Process metrics
+
+When `process_metrics.enabled: true` (see `project.config.yaml`):
+
+## After relevant agent turns
+
+Use skill **process-metrics** to append a **round** to `docs/meta/process-timeline.yaml` unless user said "não registrar métricas".
+
+## Transparency (mandatory)
+
+After each write, reply in **3 lines**:
+
+1. Recorded: round/milestone id, activity, phase, card (if any)
+2. Times: human / AI (est.) / idle-before (approx)
+3. Panel: run `make hub-build` → `make hub-serve` → `#process` em `docs/meta/project-hub/`
+
+## Context
+
+Resolve phase/activity via `active_context` → single `in_progress` card → skill → gate. If ambiguous: ask once OR `needs_review: true`.
+
+## Human correction
+
+User may edit YAML or ask to fix a round — never hide prior entries; update and rebuild JSON.
+
+## Not a delivery gate
+
+Missing metrics must **not** block cards, specs, or code.
+
+## Reference
+
+[docs/meta/process-metrics.md](../../docs/meta/process-metrics.md)

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guia — saúde da qualidade</title>
+  <link rel="stylesheet" href="quality-health.css" />
+</head>
+<body class="pm-page">
+  <main style="max-width:760px;margin:2rem auto;padding:0 1.5rem">
+    <p><a href="index.html">← Painel</a> · <a href="/process-metrics/">Tempo do processo</a></p>
+    <h1>Saúde da qualidade</h1>
+    <p>Visão <strong>executiva e técnica</strong>: índice de saúde, cobertura, cenários E2E em linguagem de negócio e rastreio REQ → testes. Complementa o painel de tempo (process-metrics).</p>
+
+    <h2>Para gestores</h2>
+    <ul>
+      <li><strong>Índice de saúde (0–100)</strong> — nota consolidada dos testes obrigatórios.</li>
+      <li><strong>E2E</strong> — fluxos reais (persona, passos, resultado esperado); toggle Cards ou Tabela.</li>
+      <li><strong>Integração API</strong> — inclui testes de contrato OpenAPI na mesma camada.</li>
+      <li><strong>Filtros globais</strong> — requisito, status, prioridade e tipo (funcional/NFR).</li>
+      <li><strong>Riscos e gaps</strong> — requisitos que ainda não estão prontos para release.</li>
+      <li>Status traduzidos: Aprovado, Falhou, Planejado, etc.</li>
+    </ul>
+
+    <h2>Executar testes pelo painel</h2>
+    <p>Com <code>make quality-demo-serve</code> (porta 8093), use <strong>Executar testes</strong> — simula nova suite e atualiza o JSON. No template virgem, o botão apenas reconstrói o painel (<code>make quality-build</code>).</p>
+
+    <h2>Fontes de dados</h2>
+    <ul>
+      <li><code>docs/backlog/mvp-backlog.md</code> — <code>req_kind</code> functional | non_functional</li>
+      <li><code>docs/specs/REQ-*.md</code> — camadas, plano TDD e tabela E2E enriquecida</li>
+      <li><code>docs/traceability-matrix.md</code></li>
+      <li><code>docs/meta/quality-runs/latest.json</code> (CI) ou <code>manual.yaml</code></li>
+    </ul>
+
+    <h2>Comandos</h2>
+    <pre>make quality-build
+make quality-serve      # :8092 + API refresh
+make quality-demo-serve # :8093 + API run-tests (demo)</pre>
+
+    <h2>Demo ampliado</h2>
+    <p><code>examples/quality-health-demo/</code> — 5 REQs, 10 cenários E2E, gráficos e gaps realistas.</p>
+
+    <h2>CI</h2>
+    <p><code>./scripts/export-quality-run.sh --junit-unit-back … --coverage-backend …</code></p>
+  </main>
+</body>
+</html>

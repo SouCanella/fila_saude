@@ -1,0 +1,17 @@
+---
+description: Perguntar propagação antes de mudar padrão visual
+globs: design-references/**
+alwaysApply: false
+---
+
+# Mudança visual
+
+Antes de alterar cor, fonte, tamanho, botão, input global:
+
+**Perguntar ao humano:**
+
+1. **Propagar** — `components.css` + tokens + todas `screens/*.html` + `pattern_version++`
+2. **Só esta tela** — ADR + registro em `APPROVAL.md` (exceção)
+3. **Novo padrão** — propagar + `in_review` → `approved` de novo
+
+Nunca mudar estilo global silenciosamente.

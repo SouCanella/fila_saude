@@ -1,0 +1,10 @@
+# Bloco canônico — aplicado em project.config.yaml da pasta irmã (spawn).
+# Valores spawned_* preenchidos por scripts/modelo_spawn.py
+
+template:
+  is_upstream: false
+  sibling_spawn_required: false
+  upstream_dev_mode: false
+  spawned_from: null
+  spawned_at: null
+  upstream_path: null

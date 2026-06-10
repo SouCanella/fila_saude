@@ -1,0 +1,10 @@
+# Fonte da verdade — métricas de tempo do processo
+# Regenerar painel: ./scripts/build-process-metrics.sh
+# Exemplo com dados: examples/process-metrics-demo/
+
+version: 1
+updated_at: null
+
+milestones: []
+sessions: []
+rounds: []

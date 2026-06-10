@@ -1,0 +1,13 @@
+---
+description: Cobertura e testes de API
+globs: "**/*.{test,spec}.*,**/tests/**"
+alwaysApply: false
+---
+
+# Testes
+
+- Cobertura >= thresholds em `project.config.yaml` (default 90%)
+- 100% endpoints OpenAPI: sucesso + erros documentados + SLA + schema
+- E2E obrigatório se spec `critical_flow: true`
+- Exclusões front: ver `coverage.frontend.exclude` no config
+- Agentes: ver rule `085-agent-automation` — `run_tests_without_approval` controla se testes rodam sem OK explícito
