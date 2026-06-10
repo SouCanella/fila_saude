@@ -11,10 +11,7 @@ coverage/
 .idea/
 .vscode/
 
-# Symlinks locais do Project Hub (make hub-serve / hub-demo-serve)
-/project-hub
-/process-metrics
-/quality-health
+# Symlinks locais duplicados só em examples/demo (raiz: project-hub → docs/meta/project-hub — versionados)
 examples/project-hub-demo/project-hub
 examples/project-hub-demo/process-metrics
 examples/project-hub-demo/quality-health
